@@ -1,6 +1,105 @@
-// Year
-document.querySelectorAll('[data-year]').forEach(el => {
-  el.textContent = new Date().getFullYear();
+// Channel partners data + filters
+const partners = [
+  // Private banks
+  { name: 'HDFC Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'ICICI Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'Axis Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'Kotak Mahindra Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'Yes Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'IndusInd Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'IDFC FIRST Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'Bandhan Bank', type: 'pvt', label: 'Private Bank' },
+  { name: 'Standard Chartered', type: 'pvt', label: 'Private Bank' },
+  { name: 'Ujjivan SFB', type: 'pvt', label: 'Small Finance Bank' },
+  { name: 'Unity SFB', type: 'pvt', label: 'Small Finance Bank' },
+  { name: 'Saraswat Bank', type: 'pvt', label: 'Co-operative Bank' },
+  // Govt / PSU banks (CGTMSE)
+  { name: 'State Bank of India', type: 'govt', label: 'Govt Bank · CGTMSE' },
+  { name: 'Punjab National Bank', type: 'govt', label: 'Govt Bank · CGTMSE' },
+  { name: 'Bank of Baroda', type: 'govt', label: 'Govt Bank · CGTMSE' },
+  { name: 'Canara Bank', type: 'govt', label: 'Govt Bank · CGTMSE' },
+  { name: 'Union Bank of India', type: 'govt', label: 'Govt Bank · CGTMSE' },
+  { name: 'Indian Bank', type: 'govt', label: 'Govt Bank · CGTMSE' },
+  // NBFCs / HFCs from user list + screenshot
+  { name: 'Edelweiss', type: 'nbfc', label: 'NBFC' },
+  { name: 'Ambit', type: 'nbfc', label: 'NBFC' },
+  { name: 'SMC', type: 'nbfc', label: 'NBFC' },
+  { name: 'Arka Fincap', type: 'nbfc', label: 'NBFC' },
+  { name: 'Faircent', type: 'nbfc', label: 'NBFC / P2P' },
+  { name: 'Piramal', type: 'nbfc', label: 'NBFC' },
+  { name: 'Finnable', type: 'nbfc', label: 'NBFC' },
+  { name: 'IIFL', type: 'nbfc', label: 'NBFC' },
+  { name: 'Anand Rathi', type: 'nbfc', label: 'NBFC' },
+  { name: 'Motilal Oswal', type: 'nbfc', label: 'NBFC' },
+  { name: 'UGRO Capital', type: 'nbfc', label: 'NBFC' },
+  { name: 'Sitara Finance', type: 'nbfc', label: 'NBFC' },
+  { name: 'Cholamandalam (Chola LAP)', type: 'nbfc', label: 'NBFC' },
+  { name: 'HDB Financial', type: 'nbfc', label: 'NBFC' },
+  { name: 'DMI Finance', type: 'nbfc', label: 'NBFC' },
+  { name: 'Godrej Capital', type: 'nbfc', label: 'NBFC' },
+  { name: 'Avash Housing', type: 'nbfc', label: 'HFC' },
+  { name: 'Axis Finance', type: 'nbfc', label: 'NBFC' },
+  { name: 'InCred (LAP)', type: 'nbfc', label: 'NBFC' },
+  { name: 'Vastu Finance', type: 'nbfc', label: 'NBFC / HFC' },
+  { name: 'Muthoot Fincorp', type: 'nbfc', label: 'NBFC' },
+  { name: 'Aditya Birla Housing Finance', type: 'nbfc', label: 'HFC' },
+  { name: 'Grihum Housing Finance', type: 'nbfc', label: 'HFC' },
+  { name: 'Bajaj Finserv', type: 'nbfc', label: 'NBFC' },
+  { name: 'Fullerton India', type: 'nbfc', label: 'NBFC' },
+  { name: 'Poonawalla Fincorp', type: 'nbfc', label: 'NBFC' },
+  { name: 'Tata Capital', type: 'nbfc', label: 'NBFC' },
+  { name: 'L&T Finance', type: 'nbfc', label: 'NBFC' },
+  { name: 'Indifi', type: 'nbfc', label: 'NBFC / Fintech' },
+  { name: 'KreditBee', type: 'nbfc', label: 'Fintech' },
+  { name: 'Growth Source', type: 'nbfc', label: 'NBFC' },
+];
+
+function partnerTypeClass(type) {
+  if (type === 'govt') return 'govt';
+  if (type === 'nbfc') return 'nbfc';
+  return '';
+}
+
+function renderPartnerTiles(list, container) {
+  if (!container) return;
+  container.innerHTML = list.map(p => {
+    const extra = p.label.includes('HFC') ? ' hfc' : '';
+    const cls = partnerTypeClass(p.type) + (p.type === 'nbfc' && p.label.includes('HFC') ? ' hfc' : '');
+    return `<div class="partner-tile">
+      <span class="ptype ${cls || (p.type === 'pvt' ? '' : p.type)}">${p.label}</span>
+      <span class="pname">${p.name}</span>
+    </div>`;
+  }).join('');
+}
+
+const gridAll = document.getElementById('partnerGridAll');
+const gridPvt = document.getElementById('partnerGridPvt');
+const gridGovt = document.getElementById('partnerGridGovt');
+const gridNbfc = document.getElementById('partnerGridNbfc');
+const partnersFull = document.getElementById('partnersFull');
+
+if (gridAll) {
+  const featured = [
+    ...partners.filter(p => p.type === 'govt'),
+    ...partners.filter(p => p.type === 'pvt').slice(0, 8),
+    ...partners.filter(p => p.type === 'nbfc').slice(0, 12),
+  ];
+  renderPartnerTiles(featured, gridAll);
+}
+if (partnersFull) renderPartnerTiles(partners, partnersFull);
+renderPartnerTiles(partners.filter(p => p.type === 'pvt'), gridPvt);
+renderPartnerTiles(partners.filter(p => p.type === 'govt'), gridGovt);
+renderPartnerTiles(partners.filter(p => p.type === 'nbfc'), gridNbfc);
+
+document.getElementById('partnerCats')?.addEventListener('click', (e) => {
+  const btn = e.target.closest('.partner-cat-btn');
+  if (!btn) return;
+  const group = btn.dataset.group;
+  document.querySelectorAll('.partner-cat-btn').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('.partner-group').forEach(g => {
+    const show = group === 'all' ? g.dataset.group === 'all' : g.dataset.group === group;
+    g.classList.toggle('active', show);
+  });
 });
 
 // Mobile nav

@@ -21,7 +21,7 @@
       <a href="contact.html">Support</a>
     </div>
     <div class="top-right">
-      <a href="tel:+918527371923">+91 85273 71923</a>
+      <a href="tel:+919643454034">+91 96434 54034</a>
       <a href="contact.html">Branch Locator</a>
     </div>
   </div>
@@ -50,6 +50,7 @@
       </li>
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
+      <li><a href="partners.html">Partners</a></li>
       <li><a href="index.html#calculator">EMI Calculator</a></li>
       <li><a href="contact.html">Apply Now</a></li>
     </ul>
@@ -83,6 +84,7 @@
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
       <li><a href="about.html">About Us</a></li>
+      <li><a href="partners.html">Partners</a></li>
       <li><a href="contact.html">Contact / Apply</a></li>
       <li><a href="index.html#calculator">EMI Calculator</a></li>
     </ul>
@@ -169,10 +171,8 @@
         <a href="loans.html" class="btn-outline-maroon">Explore All Loans</a>
       </div>
       <div class="product-visual">
-        <div class="product-visual-inner">
-          <div class="big-icon">🏠</div>
-          <h3>Home · Personal · Business</h3>
-        </div>
+        <img src="assets/images/loan-goals.jpg" alt="New home keys — home, personal and business loan goals" width="600" height="400" loading="lazy">
+        <div class="product-visual-caption">Home · Personal · Business</div>
       </div>
     </div>
     <div class="cta-bar five">
@@ -199,10 +199,8 @@
         <a href="contact.html" class="btn-maroon">Request a Callback</a>
       </div>
       <div class="product-visual">
-        <div class="product-visual-inner">
-          <div class="big-icon">💼</div>
-          <h3>OD · CC · LAP</h3>
-        </div>
+        <img src="assets/images/business-credit.jpg" alt="Business planning for OD, CC and loan against property" width="600" height="400" loading="lazy">
+        <div class="product-visual-caption">OD · CC · LAP</div>
       </div>
     </div>
     <div class="cta-bar three">
@@ -227,10 +225,8 @@
         <a href="insurance.html" class="btn-outline-maroon">Explore Insurance</a>
       </div>
       <div class="product-visual">
-        <div class="product-visual-inner">
-          <div class="big-icon">🛡</div>
-          <h3>Life · Health · Vehicle</h3>
-        </div>
+        <img src="assets/images/insurance-cover.jpg" alt="Family protected with life and health insurance" width="600" height="400" loading="lazy">
+        <div class="product-visual-caption">Life · Health · Vehicle</div>
       </div>
     </div>
     <div class="cta-bar five">
@@ -266,10 +262,15 @@
         <h3>One point of contact</h3>
         <p>Guddu Kumar and team stay with your case from call to disbursal.</p>
       </div>
+          <div class="feature-card">
+        <div class="icon">🏛</div>
+        <h3>CGTMSE access</h3>
+        <p>Govt-bank MSME credit guarantee — a capability few private advisors offer.</p>
+      </div>
       <div class="feature-card">
-        <div class="icon">📍</div>
-        <h3>East Delhi office</h3>
-        <p>Sharma Complex, Shakarpur — meet in person when you prefer.</p>
+        <div class="icon">🛡</div>
+        <h3>LIC relation</h3>
+        <p>Life &amp; term insurance through LIC with personalised advisory.</p>
       </div>
     </div>
   </div>
@@ -325,6 +326,64 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LIC + CGTMSE highlights + Channel Partners -->
+<section class="section section-alt" id="partners">
+  <div class="container">
+    <div class="section-head center">
+      <h2>Trusted channel partners</h2>
+      <p>Private banks, government banks, NBFCs &amp; housing finance — plus LIC for insurance and CGTMSE-backed MSME lending.</p>
+    </div>
+
+    <div class="highlight-row">
+      <div class="highlight-card lic">
+        <span class="highlight-badge">Insurance partner</span>
+        <h3>LIC — Life Insurance Corporation of India</h3>
+        <p>Strong LIC relationship for life &amp; term insurance solutions. Get trusted public-sector life cover with end-to-end advisory from Prateek Finserve.</p>
+        <div class="tag-row">
+          <span>Life Insurance</span>
+          <span>Term Plans</span>
+          <span>Endowment</span>
+        </div>
+      </div>
+      <div class="highlight-card cgtmse">
+        <span class="highlight-badge">MSME advantage · Rare access</span>
+        <h3>CGTMSE with Government Banks</h3>
+        <p>Collateral-free / credit-guarantee facilitated business loans via government banks under CGTMSE — a capability few advisors offer. Ideal for MSMEs needing working capital without heavy collateral.</p>
+        <div class="tag-row">
+          <span>Govt Banks</span>
+          <span>MSME Loans</span>
+          <span>Credit Guarantee</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-cats" id="partnerCats">
+      <button type="button" class="partner-cat-btn active" data-group="all">All Partners</button>
+      <button type="button" class="partner-cat-btn" data-group="pvt">Private Banks</button>
+      <button type="button" class="partner-cat-btn" data-group="govt">Govt Banks</button>
+      <button type="button" class="partner-cat-btn" data-group="nbfc">NBFCs &amp; HFCs</button>
+    </div>
+
+    <div class="partner-group active" data-group="all" id="partnerAll">
+      <div class="partner-grid" id="partnerGridAll"></div>
+    </div>
+    <div class="partner-group" data-group="pvt">
+      <p class="partner-group-label">Private / Small Finance / Co-operative Banks</p>
+      <div class="partner-grid" id="partnerGridPvt"></div>
+    </div>
+    <div class="partner-group" data-group="govt">
+      <p class="partner-group-label">Government / Public Sector Banks · CGTMSE</p>
+      <div class="partner-grid" id="partnerGridGovt"></div>
+    </div>
+    <div class="partner-group" data-group="nbfc">
+      <p class="partner-group-label">NBFCs · Housing Finance · Fintech Lenders</p>
+      <div class="partner-grid" id="partnerGridNbfc"></div>
+    </div>
+
+    <p class="partners-note">Partner availability varies by product, location and eligibility. <a href="partners.html" style="color:var(--maroon);font-weight:700;">View full partner list →</a></p>
   </div>
 </section>
 
@@ -413,8 +472,7 @@
           <div>
             <div class="ci-label">Phone</div>
             <div class="ci-value">
-              <a href="tel:+918527371923">+91 85273 71923</a><br>
-              <a href="tel:+911143012304">011-4301 2304</a>
+              <a href="tel:+919643454034">+91 96434 54034</a>
             </div>
           </div>
         </div>
@@ -497,10 +555,11 @@
     <div>
       <h4>Need help?</h4>
       <ul class="footer-links">
+        <li><a href="partners.html">Channel Partners</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="index.html#calculator">EMI Calculator</a></li>
-        <li><a href="tel:+918527371923">+91 85273 71923</a></li>
+        <li><a href="tel:+919643454034">+91 96434 54034</a></li>
       </ul>
     </div>
   </div>
@@ -518,7 +577,7 @@
 <!-- Sticky bottom bar (Axis-style) -->
 <div class="sticky-bar">
   <div class="container sticky-bar-inner">
-    <a href="tel:+918527371923">📞 <span class="label">Call Us</span></a>
+    <a href="tel:+919643454034">📞 <span class="label">Call Us</span></a>
     <a href="contact.html">📍 <span class="label">Find Office</span></a>
     <a href="index.html#calculator">📊 <span class="label">EMI Calc</span></a>
     <a href="contact.html">Apply Now</a>

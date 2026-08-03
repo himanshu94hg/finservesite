@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Prateek Finserve | Delhi</title>
-  <meta name="description" content="Prateek Finserve is a Delhi-based firm offering loans and insurance for individuals and businesses.">
+  <title>Channel Partners — Prateek Finserve | Banks, NBFCs, LIC &amp; CGTMSE</title>
+  <meta name="description" content="Prateek Finserve channel partners: private banks, government banks with CGTMSE, NBFCs, housing finance and LIC.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,7 +15,8 @@
       <a href="index.html">Personal</a>
       <a href="loans.html">Loans</a>
       <a href="insurance.html">Insurance</a>
-      <a href="about.html" class="active">About</a>
+      <a href="partners.html" class="active">Partners</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Support</a>
     </div>
     <div class="top-right">
@@ -35,9 +36,7 @@
       <li><a href="index.html">Explore Products</a></li>
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
-      <li><a href="partners.html">Partners</a></li>
-      <li><a href="partners.html">Partners</a></li>
-      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="partners.html" class="active">Partners</a></li>
       <li><a href="contact.html">Apply Now</a></li>
     </ul>
     <div class="header-actions">
@@ -55,7 +54,6 @@
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
       <li><a href="partners.html">Partners</a></li>
-      <li><a href="partners.html">Partners</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -64,83 +62,71 @@
 
 <section class="page-banner">
   <div class="container">
-    <h1>About Prateek Finserve</h1>
-    <p>Let's join hands &amp; help each other to grow faster.</p>
+    <h1>Our channel partners</h1>
+    <p>Banks, NBFCs &amp; housing finance — with LIC for insurance and CGTMSE access via government banks.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="product-block">
-      <div class="product-copy">
-        <h3>We deal in all types of loans &amp; insurance</h3>
-        <p>Prateek Finserve is a Delhi-based financial services firm offering a wide range of loan and insurance solutions tailored to individuals and businesses.</p>
-        <p>Located in Shakarpur, East Delhi, we serve clients across Delhi NCR — comparing options across banks and insurers, with one advisor from first call to disbursal.</p>
-        <a href="contact.html" class="btn-maroon">Contact Us</a>
+    <div class="highlight-row">
+      <div class="highlight-card lic">
+        <span class="highlight-badge">Featured · Insurance</span>
+        <h3>LIC Relation</h3>
+        <p>Direct association with Life Insurance Corporation of India for life, term and endowment solutions — public-sector trust with personalised advisory.</p>
+        <div class="tag-row">
+          <span>Life Cover</span>
+          <span>Term Plans</span>
+          <span>Family Protection</span>
+        </div>
       </div>
-      <div class="product-visual">
-        <div class="product-visual-inner">
-          <img src="assets/logo.png" alt="Prateek Finserve" style="width:160px;height:160px;border-radius:50%;margin:0 auto 12px;object-fit:cover;background:#000;">
-          <h3>PRATEEK FINSERVE</h3>
+      <div class="highlight-card cgtmse">
+        <span class="highlight-badge">Featured · MSME · Few have this</span>
+        <h3>CGTMSE with Government Banks</h3>
+        <p>Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) facilitation through government / public sector banks — collateral-light MSME and business credit that many private advisors cannot arrange.</p>
+        <div class="tag-row">
+          <span>Govt Banks</span>
+          <span>Business Loans</span>
+          <span>Credit Guarantee</span>
         </div>
       </div>
     </div>
+
+    <div class="partner-cats" id="partnerCats">
+      <button type="button" class="partner-cat-btn active" data-group="all">All Partners</button>
+      <button type="button" class="partner-cat-btn" data-group="pvt">Private Banks</button>
+      <button type="button" class="partner-cat-btn" data-group="govt">Govt Banks</button>
+      <button type="button" class="partner-cat-btn" data-group="nbfc">NBFCs &amp; HFCs</button>
+    </div>
+
+    <div class="partner-group active" data-group="all">
+      <p class="partner-group-label">Complete partner network</p>
+      <div class="partner-grid" id="partnersFull"></div>
+    </div>
+    <div class="partner-group" data-group="pvt">
+      <p class="partner-group-label">Private / Small Finance / Co-operative Banks</p>
+      <div class="partner-grid" id="partnerGridPvt"></div>
+    </div>
+    <div class="partner-group" data-group="govt">
+      <p class="partner-group-label">Government Banks · CGTMSE enabled</p>
+      <div class="partner-grid" id="partnerGridGovt"></div>
+    </div>
+    <div class="partner-group" data-group="nbfc">
+      <p class="partner-group-label">NBFCs · Housing Finance · Fintech</p>
+      <div class="partner-grid" id="partnerGridNbfc"></div>
+    </div>
+
+    <p class="partners-note">Names shown for reference. Sanction depends on lender policy and applicant eligibility. Call <a href="tel:+919643454034" style="color:var(--maroon);font-weight:700;">+91 96434 54034</a> to check current partner options.</p>
   </div>
 </section>
 
 <section class="section section-alt">
-  <div class="container">
-    <div class="section-head center">
-      <h2>Our promise</h2>
-    </div>
-    <div class="feature-strip">
-      <div class="feature-card">
-        <div class="icon">🎯</div>
-        <h3>Honest advice</h3>
-        <p>East Delhi’s trusted advisory — clear guidance, not a hard sell.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🤝</div>
-        <h3>Transparent process</h3>
-        <p>No hidden charges. Fees explained before you proceed.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🏦</div>
-        <h3>Multi-partner</h3>
-        <p>Multiple banks and insurers — compared options every time.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">📋</div>
-        <h3>End-to-end</h3>
-        <p>From documents to disbursal — we handle the heavy lifting.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container" style="max-width:640px;text-align:center;">
-    <div class="section-head center">
-      <h2>Your advisor</h2>
-    </div>
-    <div class="product-card" style="text-align:center;">
-      <div class="icon" style="margin:0 auto 16px;width:72px;height:72px;font-size:32px;">👤</div>
-      <h3 style="font-size:22px;">Guddu Kumar</h3>
-      <p style="color:var(--maroon);font-weight:700;">Business Head, Prateek Finserve</p>
-      <p>Personally oversees client cases — right product, best available terms.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
-        <a href="tel:+919643454034" class="btn-maroon">Call Now</a>
-        <a href="https://www.linkedin.com/in/guddu-kumar-686721104/" target="_blank" rel="noopener" class="btn-outline-maroon">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-maroon">
   <div class="container" style="text-align:center;">
-    <h2 style="color:#fff;margin:0 0 12px;font-size:28px;">Visit our office</h2>
-    <p style="color:rgba(255,255,255,0.85);margin:0 0 24px;">Building No.-10, Office No.-202, Sharma Complex, Shakarpur, New Delhi East Delhi 110092</p>
-    <a href="contact.html" class="btn-white">Get Directions</a>
+    <div class="section-head center">
+      <h2>Need a loan or policy through our partners?</h2>
+      <p>We’ll match you to the right bank, NBFC or LIC plan.</p>
+    </div>
+    <a href="contact.html" class="btn-maroon">Apply / Get Callback</a>
   </div>
 </section>
 
