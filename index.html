@@ -91,47 +91,113 @@
   </div>
 </div>
 
-<!-- Hero — soft pink, large headline + product finder (Axis banner pattern) -->
-<section class="hero">
+<!-- Hero banner slider -->
+<section class="hero" id="heroBanner" data-theme="default" aria-roledescription="carousel" aria-label="Highlights">
   <div class="container hero-inner">
-    <h1>We deal in all types of loans &amp; insurance</h1>
-    <p class="hero-sub">Prateek Finserve helps individuals and businesses in Delhi find the right loan or cover — compared across partners, paperwork handled for you.</p>
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slides">
+        <!-- 1: Current / general -->
+        <div class="hero-slide is-active" data-theme="default" role="group" aria-roledescription="slide" aria-label="1 of 4">
+          <p class="hero-eyebrow">Prateek Finserve · Delhi</p>
+          <h1>We deal in all types of loans &amp; insurance</h1>
+          <p class="hero-sub">Prateek Finserve helps individuals and businesses in Delhi find the right loan or cover — compared across partners, paperwork handled for you.</p>
 
-    <div class="finder">
-      <div class="finder-tabs" id="finderTabs">
-        <button type="button" class="finder-tab active" data-cat="loans">Loans</button>
-        <button type="button" class="finder-tab" data-cat="insurance">Insurance</button>
-        <button type="button" class="finder-tab" data-cat="business">Business</button>
-        <button type="button" class="finder-tab" data-cat="property">Property</button>
-        <button type="button" class="finder-tab" data-cat="vehicle">Vehicle</button>
+          <div class="finder">
+            <div class="finder-tabs" id="finderTabs">
+              <button type="button" class="finder-tab active" data-cat="loans">Loans</button>
+              <button type="button" class="finder-tab" data-cat="insurance">Insurance</button>
+              <button type="button" class="finder-tab" data-cat="business">Business</button>
+              <button type="button" class="finder-tab" data-cat="property">Property</button>
+              <button type="button" class="finder-tab" data-cat="vehicle">Vehicle</button>
+            </div>
+            <div class="finder-body">
+              <form class="finder-fields" id="finderForm" action="contact.html" method="get">
+                <div class="finder-field">
+                  <label for="lookingFor">I am looking for…</label>
+                  <select id="lookingFor" name="looking">
+                    <option value="personal">Personal Loan</option>
+                    <option value="home">Home Loan</option>
+                    <option value="business">Business Loan</option>
+                    <option value="lap">Loan Against Property</option>
+                    <option value="od">Overdraft (OD)</option>
+                    <option value="cc">Cash Credit (CC)</option>
+                    <option value="car">Car / Used Car Loan</option>
+                    <option value="education">Education Loan</option>
+                    <option value="vehicle">Vehicle Loan</option>
+                  </select>
+                </div>
+                <div class="finder-field">
+                  <label for="iAm">I am a…</label>
+                  <select id="iAm" name="segment">
+                    <option value="personal">Salaried Individual</option>
+                    <option value="self">Self-Employed</option>
+                    <option value="business">Business Owner</option>
+                    <option value="student">Student</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn-maroon">Get Started</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: MSME -->
+        <div class="hero-slide" data-theme="msme" role="group" aria-roledescription="slide" aria-label="2 of 4" hidden>
+          <p class="hero-eyebrow">Business finance</p>
+          <h1>MSME loans built for growing businesses</h1>
+          <p class="hero-sub">Working capital, term loans, OD &amp; CC for micro, small and medium enterprises — matched to lenders who understand your cash flow and sector.</p>
+          <ul class="hero-points">
+            <li>Working capital &amp; term finance</li>
+            <li>Paperwork &amp; bank follow-ups handled</li>
+            <li>Partners across banks &amp; NBFCs</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="loans.html#business" class="btn-maroon">Explore MSME Loans</a>
+            <a href="contact.html?looking=business" class="btn-outline-maroon">Request Callback</a>
+          </div>
+        </div>
+
+        <!-- 3: CGTMSE -->
+        <div class="hero-slide" data-theme="cgtmse" role="group" aria-roledescription="slide" aria-label="3 of 4" hidden>
+          <p class="hero-eyebrow">MSME advantage · Rare access</p>
+          <h1>CGTMSE with government banks</h1>
+          <p class="hero-sub">Collateral-light / credit-guarantee facilitated business loans via PSU banks under CGTMSE — ideal when your MSME needs capital without heavy collateral.</p>
+          <ul class="hero-points">
+            <li>Credit guarantee support for eligible MSMEs</li>
+            <li>Access via government / public sector banks</li>
+            <li>End-to-end case handling by our team</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="index.html#partners" class="btn-maroon">See Govt Bank Partners</a>
+            <a href="contact.html?looking=business&amp;segment=business" class="btn-outline-maroon">Check Eligibility</a>
+          </div>
+        </div>
+
+        <!-- 4: LIC -->
+        <div class="hero-slide" data-theme="lic" role="group" aria-roledescription="slide" aria-label="4 of 4" hidden>
+          <p class="hero-eyebrow">Insurance partner</p>
+          <h1>LIC life &amp; term cover you can trust</h1>
+          <p class="hero-sub">Strong LIC relationship for life insurance, term plans and endowment — public-sector assurance with clear advisory from Prateek Finserve.</p>
+          <ul class="hero-points">
+            <li>Life &amp; term insurance</li>
+            <li>Endowment &amp; long-term savings plans</li>
+            <li>Guided proposal to policy issuance</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="insurance.html#life" class="btn-maroon">Explore LIC Plans</a>
+            <a href="contact.html?looking=life" class="btn-outline-maroon">Talk to an Advisor</a>
+          </div>
+        </div>
       </div>
-      <div class="finder-body">
-        <form class="finder-fields" id="finderForm" action="contact.html" method="get">
-          <div class="finder-field">
-            <label for="lookingFor">I am looking for…</label>
-            <select id="lookingFor" name="looking">
-              <option value="personal">Personal Loan</option>
-              <option value="home">Home Loan</option>
-              <option value="business">Business Loan</option>
-              <option value="lap">Loan Against Property</option>
-              <option value="od">Overdraft (OD)</option>
-              <option value="cc">Cash Credit (CC)</option>
-              <option value="car">Car / Used Car Loan</option>
-              <option value="education">Education Loan</option>
-              <option value="vehicle">Vehicle Loan</option>
-            </select>
-          </div>
-          <div class="finder-field">
-            <label for="iAm">I am a…</label>
-            <select id="iAm" name="segment">
-              <option value="personal">Salaried Individual</option>
-              <option value="self">Self-Employed</option>
-              <option value="business">Business Owner</option>
-              <option value="student">Student</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-maroon">Get Started</button>
-        </form>
+
+      <div class="hero-slider-controls">
+        <button type="button" class="hero-arrow" id="heroPrev" aria-label="Previous slide">
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M9.2 2.2 4.4 7l4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="hero-dots" id="heroDots" role="tablist" aria-label="Banner slides"></div>
+        <button type="button" class="hero-arrow" id="heroNext" aria-label="Next slide">
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M4.8 2.2 9.6 7l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </div>
 
@@ -171,8 +237,8 @@
         <a href="loans.html" class="btn-outline-maroon">Explore All Loans</a>
       </div>
       <div class="product-visual">
-        <img src="assets/images/loan-goals.jpg" alt="New home keys — home, personal and business loan goals" width="600" height="400" loading="lazy">
-        <div class="product-visual-caption">Home · Personal · Business</div>
+        <img src="assets/images/loan-goals.jpg" alt="Financial planning for personal, home, car, business and education loans" width="600" height="400" loading="lazy">
+        <div class="product-visual-caption">Personal · Home · Car · Business · Education</div>
       </div>
     </div>
     <div class="cta-bar five">
@@ -276,20 +342,56 @@
   </div>
 </section>
 
-<!-- EMI Calculator with donut -->
+<!-- EMI Calculator — unlock after lead form -->
 <section class="section" id="calculator">
   <div class="container">
     <div class="section-head center">
       <h2>EMI Calculator</h2>
-      <p>Estimate your monthly payment. Indicative only — final rates depend on lender and profile.</p>
+      <p>Share your details to unlock the calculator. Indicative only — final rates depend on lender and profile.</p>
     </div>
-    <div class="calc-wrap">
+
+    <div class="emi-gate" id="emiGate">
+      <form class="form-card emi-lead-form" id="emiLeadForm" novalidate>
+        <h3>Unlock your EMI estimate</h3>
+        <p class="emi-gate-note">We’ll email your enquiry to our team and open the calculator for you.</p>
+        <div class="form-success" id="emiLeadSuccess">Thanks! Opening your EMI calculator…</div>
+        <div class="form-error" id="emiLeadError" hidden>Something went wrong. Please try again or call +91 96434 54034.</div>
+        <div class="form-group">
+          <label for="emiName">Full Name *</label>
+          <input type="text" id="emiName" name="name" required autocomplete="name" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label for="emiMobile">Mobile *</label>
+          <input type="tel" id="emiMobile" name="mobile" required autocomplete="tel" inputmode="tel" pattern="[0-9+\s\-]{10,15}" placeholder="10-digit mobile number">
+        </div>
+        <div class="form-group">
+          <label for="emiProduct">Product type *</label>
+          <select id="emiProduct" name="product" required>
+            <option value="">Select product</option>
+            <option value="Personal Loan" data-rate="10.5">Personal Loan</option>
+            <option value="Home Loan" data-rate="8.5">Home Loan</option>
+            <option value="Car Loan" data-rate="9">Car Loan</option>
+            <option value="Loan Against Property" data-rate="9.5">Loan Against Property</option>
+            <option value="Business Loan" data-rate="12">Business Loan</option>
+            <option value="Education Loan" data-rate="10.5">Education Loan</option>
+            <option value="Overdraft (OD)" data-rate="12">Overdraft (OD)</option>
+            <option value="Cash Credit (CC)" data-rate="12">Cash Credit (CC)</option>
+            <option value="Life Insurance">Life Insurance</option>
+            <option value="Term Insurance">Term Insurance</option>
+            <option value="Health Insurance">Health Insurance</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-maroon" id="emiLeadSubmit" style="width:100%;">Unlock EMI Calculator</button>
+      </form>
+    </div>
+
+    <div class="calc-wrap" id="emiCalcPanel" hidden>
       <div class="calc-tabs" id="calcTabs">
-        <button type="button" class="calc-tab active" data-rate="10.5">Personal Loan</button>
-        <button type="button" class="calc-tab" data-rate="8.5">Home Loan</button>
-        <button type="button" class="calc-tab" data-rate="9">Car Loan</button>
-        <button type="button" class="calc-tab" data-rate="9.5">Loan Against Property</button>
-        <button type="button" class="calc-tab" data-rate="12">Business Loan</button>
+        <button type="button" class="calc-tab active" data-rate="10.5" data-product="Personal Loan">Personal Loan</button>
+        <button type="button" class="calc-tab" data-rate="8.5" data-product="Home Loan">Home Loan</button>
+        <button type="button" class="calc-tab" data-rate="9" data-product="Car Loan">Car Loan</button>
+        <button type="button" class="calc-tab" data-rate="9.5" data-product="Loan Against Property">Loan Against Property</button>
+        <button type="button" class="calc-tab" data-rate="12" data-product="Business Loan">Business Loan</button>
       </div>
       <div class="calc-grid">
         <div>
@@ -339,6 +441,7 @@
 
     <div class="highlight-row">
       <div class="highlight-card lic">
+        <img class="highlight-logo" src="https://logo.clearbit.com/licindia.in" alt="LIC logo" onerror="this.src='assets/partners/lic.png'">
         <span class="highlight-badge">Insurance partner</span>
         <h3>LIC — Life Insurance Corporation of India</h3>
         <p>Strong LIC relationship for life &amp; term insurance solutions. Get trusted public-sector life cover with end-to-end advisory from Prateek Finserve.</p>
@@ -415,25 +518,26 @@
       <p>Fill the form — our team responds within 24 hours.</p>
     </div>
     <div class="form-grid-2">
-      <form class="form-card contact-form">
+      <form class="form-card contact-form" id="homeContactForm">
         <div class="form-success">Thank you! We'll contact you within 24 hours.</div>
+        <div class="form-error" hidden>Could not send. Please try again or email support@prateekfinserve.com.</div>
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required placeholder="Your full name">
+            <label for="homeName">Full Name *</label>
+            <input type="text" id="homeName" name="name" required placeholder="Your full name">
           </div>
           <div class="form-group">
-            <label for="phone">Phone *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+            <label for="homePhone">Phone *</label>
+            <input type="tel" id="homePhone" name="phone" required placeholder="+91 XXXXX XXXXX">
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com">
+          <label for="homeEmail">Email</label>
+          <input type="email" id="homeEmail" name="email" placeholder="your@email.com">
         </div>
         <div class="form-group">
-          <label for="service">Service interested in</label>
-          <select id="service" name="service">
+          <label for="homeService">Service interested in</label>
+          <select id="homeService" name="service">
             <option value="">Select a service</option>
             <optgroup label="Loans">
               <option>Personal Loan</option>
@@ -456,8 +560,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your requirement…"></textarea>
+          <label for="homeMessage">Message</label>
+          <textarea id="homeMessage" name="message" placeholder="Tell us about your requirement…"></textarea>
         </div>
         <button type="submit" class="btn-maroon" style="width:100%;">Submit Enquiry</button>
       </form>

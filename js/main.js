@@ -1,57 +1,56 @@
-// Channel partners data + filters
+﻿// Channel partners data + filters
 const partners = [
   // Private banks
-  { name: 'HDFC Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'ICICI Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'Axis Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'Kotak Mahindra Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'Yes Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'IndusInd Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'IDFC FIRST Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'Bandhan Bank', type: 'pvt', label: 'Private Bank' },
-  { name: 'Standard Chartered', type: 'pvt', label: 'Private Bank' },
-  { name: 'Ujjivan SFB', type: 'pvt', label: 'Small Finance Bank' },
-  { name: 'Unity SFB', type: 'pvt', label: 'Small Finance Bank' },
-  { name: 'Saraswat Bank', type: 'pvt', label: 'Co-operative Bank' },
+  { name: 'HDFC Bank', type: 'pvt', label: 'Private Bank', slug: 'hdfc-bank', domain: 'hdfcbank.com' },
+  { name: 'ICICI Bank', type: 'pvt', label: 'Private Bank', slug: 'icici-bank', domain: 'icicibank.com' },
+  { name: 'Axis Bank', type: 'pvt', label: 'Private Bank', slug: 'axis-bank', domain: 'axisbank.com' },
+  { name: 'Kotak Mahindra Bank', type: 'pvt', label: 'Private Bank', slug: 'kotak-mahindra-bank', domain: 'kotak.com' },
+  { name: 'Yes Bank', type: 'pvt', label: 'Private Bank', slug: 'yes-bank', domain: 'yesbank.in' },
+  { name: 'IndusInd Bank', type: 'pvt', label: 'Private Bank', slug: 'indusind-bank', domain: 'indusind.com' },
+  { name: 'IDFC FIRST Bank', type: 'pvt', label: 'Private Bank', slug: 'idfc-first-bank', domain: 'idfcfirstbank.com' },
+  { name: 'Bandhan Bank', type: 'pvt', label: 'Private Bank', slug: 'bandhan-bank', domain: 'bandhanbank.com' },
+  { name: 'Standard Chartered', type: 'pvt', label: 'Private Bank', slug: 'standard-chartered', domain: 'sc.com' },
+  { name: 'Ujjivan SFB', type: 'pvt', label: 'Small Finance Bank', slug: 'ujjivan-sfb', domain: 'ujjivansfb.in' },
+  { name: 'Unity SFB', type: 'pvt', label: 'Small Finance Bank', slug: 'unity-sfb', domain: 'theunitybank.com' },
+  { name: 'Saraswat Bank', type: 'pvt', label: 'Co-operative Bank', slug: 'saraswat-bank', domain: 'saraswatbank.com' },
   // Govt / PSU banks (CGTMSE)
-  { name: 'State Bank of India', type: 'govt', label: 'Govt Bank · CGTMSE' },
-  { name: 'Punjab National Bank', type: 'govt', label: 'Govt Bank · CGTMSE' },
-  { name: 'Bank of Baroda', type: 'govt', label: 'Govt Bank · CGTMSE' },
-  { name: 'Canara Bank', type: 'govt', label: 'Govt Bank · CGTMSE' },
-  { name: 'Union Bank of India', type: 'govt', label: 'Govt Bank · CGTMSE' },
-  { name: 'Indian Bank', type: 'govt', label: 'Govt Bank · CGTMSE' },
-  // NBFCs / HFCs from user list + screenshot
-  { name: 'Edelweiss', type: 'nbfc', label: 'NBFC' },
-  { name: 'Ambit', type: 'nbfc', label: 'NBFC' },
-  { name: 'SMC', type: 'nbfc', label: 'NBFC' },
-  { name: 'Arka Fincap', type: 'nbfc', label: 'NBFC' },
-  { name: 'Faircent', type: 'nbfc', label: 'NBFC / P2P' },
-  { name: 'Piramal', type: 'nbfc', label: 'NBFC' },
-  { name: 'Finnable', type: 'nbfc', label: 'NBFC' },
-  { name: 'IIFL', type: 'nbfc', label: 'NBFC' },
-  { name: 'Anand Rathi', type: 'nbfc', label: 'NBFC' },
-  { name: 'Motilal Oswal', type: 'nbfc', label: 'NBFC' },
-  { name: 'UGRO Capital', type: 'nbfc', label: 'NBFC' },
-  { name: 'Sitara Finance', type: 'nbfc', label: 'NBFC' },
-  { name: 'Cholamandalam (Chola LAP)', type: 'nbfc', label: 'NBFC' },
-  { name: 'HDB Financial', type: 'nbfc', label: 'NBFC' },
-  { name: 'DMI Finance', type: 'nbfc', label: 'NBFC' },
-  { name: 'Godrej Capital', type: 'nbfc', label: 'NBFC' },
-  { name: 'Avash Housing', type: 'nbfc', label: 'HFC' },
-  { name: 'Axis Finance', type: 'nbfc', label: 'NBFC' },
-  { name: 'InCred (LAP)', type: 'nbfc', label: 'NBFC' },
-  { name: 'Vastu Finance', type: 'nbfc', label: 'NBFC / HFC' },
-  { name: 'Muthoot Fincorp', type: 'nbfc', label: 'NBFC' },
-  { name: 'Aditya Birla Housing Finance', type: 'nbfc', label: 'HFC' },
-  { name: 'Grihum Housing Finance', type: 'nbfc', label: 'HFC' },
-  { name: 'Bajaj Finserv', type: 'nbfc', label: 'NBFC' },
-  { name: 'Fullerton India', type: 'nbfc', label: 'NBFC' },
-  { name: 'Poonawalla Fincorp', type: 'nbfc', label: 'NBFC' },
-  { name: 'Tata Capital', type: 'nbfc', label: 'NBFC' },
-  { name: 'L&T Finance', type: 'nbfc', label: 'NBFC' },
-  { name: 'Indifi', type: 'nbfc', label: 'NBFC / Fintech' },
-  { name: 'KreditBee', type: 'nbfc', label: 'Fintech' },
-  { name: 'Growth Source', type: 'nbfc', label: 'NBFC' },
+  { name: 'State Bank of India', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'state-bank-of-india', domain: 'sbi.co.in' },
+  { name: 'Punjab National Bank', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'punjab-national-bank', domain: 'pnbindia.in' },
+  { name: 'Bank of Baroda', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'bank-of-baroda', domain: 'bankofbaroda.in' },
+  { name: 'Canara Bank', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'canara-bank', domain: 'canarabank.com' },
+  { name: 'Union Bank of India', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'union-bank-of-india', domain: 'unionbankofindia.co.in' },
+  { name: 'Indian Bank', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'indian-bank', domain: 'indianbank.in' },
+  // NBFCs / HFCs
+  { name: 'Edelweiss', type: 'nbfc', label: 'NBFC', slug: 'edelweiss', domain: 'edelweissfin.com' },
+  { name: 'Ambit', type: 'nbfc', label: 'NBFC', slug: 'ambit', domain: 'ambit.co' },
+  { name: 'SMC', type: 'nbfc', label: 'NBFC', slug: 'smc', domain: 'smctradeonline.com' },
+  { name: 'Arka Fincap', type: 'nbfc', label: 'NBFC', slug: 'arka-fincap', domain: 'arkafincap.com' },
+  { name: 'Faircent', type: 'nbfc', label: 'NBFC / P2P', slug: 'faircent', domain: 'faircent.com' },
+  { name: 'Piramal', type: 'nbfc', label: 'NBFC', slug: 'piramal', domain: 'piramalfinance.com' },
+  { name: 'Finnable', type: 'nbfc', label: 'NBFC', slug: 'finnable', domain: 'finnable.com' },
+  { name: 'IIFL', type: 'nbfc', label: 'NBFC', slug: 'iifl', domain: 'iifl.com' },
+  { name: 'Anand Rathi', type: 'nbfc', label: 'NBFC', slug: 'anand-rathi', domain: 'anandrathi.com' },
+  { name: 'Motilal Oswal', type: 'nbfc', label: 'NBFC', slug: 'motilal-oswal', domain: 'motilaloswal.com' },
+  { name: 'UGRO Capital', type: 'nbfc', label: 'NBFC', slug: 'ugro-capital', domain: 'ugrocapital.com' },
+  { name: 'Sitara Finance', type: 'nbfc', label: 'NBFC', slug: 'sitara-finance', domain: 'sitaraindia.com' },
+  { name: 'Cholamandalam (Chola LAP)', type: 'nbfc', label: 'NBFC', slug: 'cholamandalam', domain: 'cholamandalam.com' },
+  { name: 'HDB Financial', type: 'nbfc', label: 'NBFC', slug: 'hdb-financial', domain: 'hdbfs.com' },
+  { name: 'DMI Finance', type: 'nbfc', label: 'NBFC', slug: 'dmi-finance', domain: 'dmifinance.in' },
+  { name: 'Godrej Capital', type: 'nbfc', label: 'NBFC', slug: 'godrej-capital', domain: 'godrejcapital.com' },
+  { name: 'Avash Housing', type: 'nbfc', label: 'HFC', slug: 'avash-housing', domain: 'avashousing.com' },
+  { name: 'Axis Finance', type: 'nbfc', label: 'NBFC', slug: 'axis-finance', domain: 'axisfinance.co.in' },
+  { name: 'InCred (LAP)', type: 'nbfc', label: 'NBFC', slug: 'incred', domain: 'incred.com' },
+  { name: 'Vastu Finance', type: 'nbfc', label: 'NBFC / HFC', slug: 'vastu-finance', domain: 'vastuhfc.com' },
+  { name: 'Muthoot Fincorp', type: 'nbfc', label: 'NBFC', slug: 'muthoot-fincorp', domain: 'muthootfincorp.com' },
+  { name: 'Aditya Birla Housing Finance', type: 'nbfc', label: 'HFC', slug: 'aditya-birla-housing-finance', domain: 'adityabirlacapital.com' },
+  { name: 'Grihum Housing Finance', type: 'nbfc', label: 'HFC', slug: 'grihum-housing-finance', domain: 'grihumhousing.com' },
+  { name: 'Bajaj Finserv', type: 'nbfc', label: 'NBFC', slug: 'bajaj-finserv', domain: 'bajajfinserv.in' },
+  { name: 'Fullerton India', type: 'nbfc', label: 'NBFC', slug: 'fullerton-india', domain: 'fullertonindia.com' },
+  { name: 'Poonawalla Fincorp', type: 'nbfc', label: 'NBFC', slug: 'poonawalla-fincorp', domain: 'poonawallafincorp.com' },
+  { name: 'Tata Capital', type: 'nbfc', label: 'NBFC', slug: 'tata-capital', domain: 'tatacapital.com' },
+  { name: 'L&T Finance', type: 'nbfc', label: 'NBFC', slug: 'lt-finance', domain: 'ltfs.com' },
+  { name: 'Indifi', type: 'nbfc', label: 'NBFC / Fintech', slug: 'indifi', domain: 'indifi.com' },
+  { name: 'KreditBee', type: 'nbfc', label: 'Fintech', slug: 'kreditbee', domain: 'kreditbee.in' },
 ];
 
 function partnerTypeClass(type) {
@@ -60,17 +59,128 @@ function partnerTypeClass(type) {
   return '';
 }
 
+function partnerInitials(name) {
+  return name.split(/[\s(]+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+}
+
+/** Prefer local SVG/PNG first (reliable), then CDN, then initials */
+const LOCAL_LOGO_EXT = {
+  'state-bank-of-india': 'png',
+  'punjab-national-bank': 'png',
+  'union-bank-of-india': 'png',
+  'bank-of-baroda': 'png',
+  'canara-bank': 'png',
+  'yes-bank': 'png',
+  'indian-bank': 'png',
+  'hdfc-bank': 'png',
+  'icici-bank': 'png',
+  'indusind-bank': 'png',
+  'idfc-first-bank': 'png',
+  'bandhan-bank': 'png',
+  'edelweiss': 'png',
+  'ambit': 'png',
+  'axis-bank': 'svg',
+  'kotak-mahindra-bank': 'svg',
+  'arka-fincap': 'png',
+  'faircent': 'png',
+  'piramal': 'png',
+  'finnable': 'png',
+  'iifl': 'png',
+  'anand-rathi': 'png',
+  'smc': 'svg',
+  'motilal-oswal': 'svg',
+  'ugro-capital': 'webp',
+  'sitara-finance': 'png',
+  'standard-chartered': 'svg',
+  'ujjivan-sfb': 'svg',
+  'unity-sfb': 'svg',
+  'saraswat-bank': 'png',
+  'cholamandalam': 'svg',
+  'hdb-financial': 'svg',
+  'dmi-finance': 'svg',
+  'godrej-capital': 'jpg',
+  'avash-housing': 'png',
+  'axis-finance': 'webp',
+  'incred': 'svg',
+  'vastu-finance': 'svg',
+  'muthoot-fincorp': 'png',
+  'aditya-birla-housing-finance': 'png',
+  'grihum-housing-finance': 'svg',
+  'bajaj-finserv': 'png',
+  'fullerton-india': 'svg',
+  'poonawalla-fincorp': 'svg',
+  'tata-capital': 'svg',
+  'lt-finance': 'webp',
+  'indifi': 'png',
+  'kreditbee': 'svg',
+};
+
+function partnerLocalSrc(slug) {
+  const ext = LOCAL_LOGO_EXT[slug] || 'png';
+  return `assets/partners/${slug}.${ext}`;
+}
+
+/** White / light logos that need the dark plate in .partner-logo-wrap */
+const DARK_LOGO_SLUGS = new Set([
+  'ujjivan-sfb',
+  'axis-finance',
+  'lt-finance',
+  'tata-capital',
+  'muthoot-fincorp',
+  'yes-bank',
+  'punjab-national-bank',
+  'bank-of-baroda',
+  'canara-bank',
+  'union-bank-of-india',
+  'icici-bank',
+  'indusind-bank',
+  'bandhan-bank',
+  'edelweiss',
+  'ambit',
+  'arka-fincap',
+  'faircent',
+  'piramal',
+  'finnable',
+  'iifl',
+]);
+
 function renderPartnerTiles(list, container) {
   if (!container) return;
   container.innerHTML = list.map(p => {
-    const extra = p.label.includes('HFC') ? ' hfc' : '';
-    const cls = partnerTypeClass(p.type) + (p.type === 'nbfc' && p.label.includes('HFC') ? ' hfc' : '');
+    const cls = partnerTypeClass(p.type) + (p.label.includes('HFC') ? ' hfc' : '');
+    const local = partnerLocalSrc(p.slug);
+    const cdn = `https://logo.clearbit.com/${p.domain}`;
+    const initials = partnerInitials(p.name);
+    const tone = DARK_LOGO_SLUGS.has(p.slug) ? ' logo-on-dark' : '';
     return `<div class="partner-tile">
-      <span class="ptype ${cls || (p.type === 'pvt' ? '' : p.type)}">${p.label}</span>
+      <div class="partner-logo-wrap${tone}">
+        <img class="partner-logo" src="${local}" alt="${p.name} logo" loading="lazy"
+          data-cdn="${cdn}" data-initials="${initials}"
+          onerror="partnerLogoFallback(this)">
+        <span class="partner-initials" hidden aria-hidden="true">${initials}</span>
+      </div>
+      <span class="ptype ${cls}">${p.label}</span>
       <span class="pname">${p.name}</span>
     </div>`;
   }).join('');
 }
+
+function partnerLogoFallback(img) {
+  if (img.dataset.triedCdn !== '1' && img.dataset.cdn) {
+    img.dataset.triedCdn = '1';
+    img.src = img.dataset.cdn;
+    return;
+  }
+  img.style.display = 'none';
+  img.removeAttribute('alt');
+  const initials = img.parentElement?.querySelector('.partner-initials');
+  if (initials) {
+    initials.hidden = false;
+    initials.removeAttribute('aria-hidden');
+  }
+}
+window.partnerLogoFallback = partnerLogoFallback;
+
 
 const gridAll = document.getElementById('partnerGridAll');
 const gridPvt = document.getElementById('partnerGridPvt');
@@ -114,7 +224,90 @@ if (menuToggle && mobileNav) {
   });
 }
 
-// Product finder tabs — swap "looking for" options
+// Hero banner slider
+(function initHeroSlider() {
+  const banner = document.getElementById('heroBanner');
+  const slides = [...document.querySelectorAll('#heroSlider .hero-slide')];
+  const dotsWrap = document.getElementById('heroDots');
+  const prevBtn = document.getElementById('heroPrev');
+  const nextBtn = document.getElementById('heroNext');
+  if (!banner || slides.length < 2 || !dotsWrap) return;
+
+  let index = 0;
+  let timer = null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUTO_MS = 6500;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'hero-dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    dot.addEventListener('click', () => goTo(i, true));
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = [...dotsWrap.querySelectorAll('.hero-dot')];
+
+  function goTo(i, userDriven) {
+    index = (i + slides.length) % slides.length;
+    slides.forEach((slide, n) => {
+      const on = n === index;
+      slide.classList.toggle('is-active', on);
+      if (on) {
+        slide.removeAttribute('hidden');
+      } else {
+        slide.setAttribute('hidden', '');
+      }
+    });
+    dots.forEach((dot, n) => dot.setAttribute('aria-selected', n === index ? 'true' : 'false'));
+    banner.dataset.theme = slides[index].dataset.theme || 'default';
+    if (userDriven) restart();
+  }
+
+  function next() { goTo(index + 1, false); }
+  function prev() { goTo(index - 1, true); }
+
+  function stop() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function start() {
+    if (reduceMotion) return;
+    stop();
+    timer = setInterval(next, AUTO_MS);
+  }
+
+  function restart() {
+    stop();
+    start();
+  }
+
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', () => { goTo(index + 1, true); });
+
+  banner.addEventListener('mouseenter', stop);
+  banner.addEventListener('mouseleave', start);
+  banner.addEventListener('focusin', stop);
+  banner.addEventListener('focusout', (e) => {
+    if (!banner.contains(e.relatedTarget)) start();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  goTo(0, false);
+  start();
+})();
+
+// Product finder tabs â€” swap "looking for" options
 const finderOptions = {
   loans: [
     ['personal', 'Personal Loan'],
@@ -188,12 +381,82 @@ document.getElementById('finderForm')?.addEventListener('submit', (e) => {
   window.location.href = map[looking] || 'contact.html';
 });
 
-// EMI Calculator + donut
+// Email submissions → support@prateekfinserve.com (FormSubmit)
+const SUPPORT_EMAIL = 'support@prateekfinserve.com';
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${SUPPORT_EMAIL}`;
+
+async function sendToSupport(fields) {
+  const res = await fetch(FORMSUBMIT_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      ...fields,
+      _captcha: 'false',
+      _template: 'table',
+    }),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(text || 'Failed to send');
+  }
+  return res.json().catch(() => ({}));
+}
+
+function formPayload(form) {
+  const data = new FormData(form);
+  const payload = {};
+  data.forEach((value, key) => {
+    if (String(value).trim()) payload[key] = String(value).trim();
+  });
+  return payload;
+}
+
+// EMI Calculator + donut (shown after lead form)
 const calcAmount = document.getElementById('calcAmount');
 const calcRate = document.getElementById('calcRate');
 const calcTenure = document.getElementById('calcTenure');
 const canvas = document.getElementById('emiChart');
+const emiGate = document.getElementById('emiGate');
+const emiCalcPanel = document.getElementById('emiCalcPanel');
+const EMI_UNLOCK_KEY = 'pf_emi_unlocked_at';
+const EMI_UNLOCK_MS = 60 * 60 * 1000; // 1 hour
 
+function getEmiUnlockAt() {
+  try {
+    const raw = localStorage.getItem(EMI_UNLOCK_KEY);
+    const at = raw ? parseInt(raw, 10) : 0;
+    return Number.isFinite(at) ? at : 0;
+  } catch (_) {
+    return 0;
+  }
+}
+
+function isEmiUnlocked() {
+  const at = getEmiUnlockAt();
+  if (!at) return false;
+  return Date.now() - at < EMI_UNLOCK_MS;
+}
+
+function saveEmiUnlock() {
+  try {
+    localStorage.setItem(EMI_UNLOCK_KEY, String(Date.now()));
+  } catch (_) { /* ignore */ }
+}
+
+function clearEmiUnlock() {
+  try {
+    localStorage.removeItem(EMI_UNLOCK_KEY);
+  } catch (_) { /* ignore */ }
+}
+
+function lockEmiCalculator() {
+  if (emiGate) emiGate.hidden = false;
+  if (emiCalcPanel) emiCalcPanel.hidden = true;
+  clearEmiUnlock();
+}
 function formatINR(num) {
   return '₹' + Math.round(num).toLocaleString('en-IN');
 }
@@ -233,7 +496,6 @@ function drawDonut(principal, interest) {
     start += angle;
   });
 
-  // inner white hole already via center overlay; draw subtle ring bg
   ctx.beginPath();
   ctx.arc(cx, cy, r, 0, Math.PI * 2);
   ctx.strokeStyle = '#F0F0F0';
@@ -244,7 +506,7 @@ function drawDonut(principal, interest) {
 }
 
 function updateCalc() {
-  if (!calcAmount) return;
+  if (!calcAmount || !calcRate || !calcTenure) return;
   const P = parseFloat(calcAmount.value);
   const annualRate = parseFloat(calcRate.value);
   const n = parseFloat(calcTenure.value);
@@ -267,6 +529,40 @@ function updateCalc() {
   drawDonut(P, interest);
 }
 
+function unlockEmiCalculator(productName, { persist = true } = {}) {
+  if (emiGate) emiGate.hidden = true;
+  if (emiCalcPanel) emiCalcPanel.hidden = false;
+
+  if (productName && calcRate) {
+    const tabs = [...document.querySelectorAll('.calc-tab')];
+    const match = tabs.find(t => t.dataset.product === productName);
+    if (match) {
+      tabs.forEach(t => t.classList.toggle('active', t === match));
+      calcRate.value = match.dataset.rate;
+    } else {
+      const opt = document.querySelector(`#emiProduct option[value="${CSS.escape(productName)}"]`);
+      if (opt?.dataset.rate) calcRate.value = opt.dataset.rate;
+    }
+  }
+
+  requestAnimationFrame(() => updateCalc());
+  if (persist) saveEmiUnlock();
+  scheduleEmiRelock();
+}
+
+let emiRelockTimer = null;
+function scheduleEmiRelock() {
+  if (emiRelockTimer) clearTimeout(emiRelockTimer);
+  const at = getEmiUnlockAt();
+  if (!at) return;
+  const remaining = EMI_UNLOCK_MS - (Date.now() - at);
+  if (remaining <= 0) {
+    lockEmiCalculator();
+    return;
+  }
+  emiRelockTimer = setTimeout(() => lockEmiCalculator(), remaining);
+}
+
 [calcAmount, calcRate, calcTenure].forEach(el => {
   el?.addEventListener('input', updateCalc);
 });
@@ -279,8 +575,56 @@ document.getElementById('calcTabs')?.addEventListener('click', (e) => {
   updateCalc();
 });
 
-updateCalc();
+document.getElementById('emiLeadForm')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = document.getElementById('emiLeadSubmit');
+  const success = document.getElementById('emiLeadSuccess');
+  const error = document.getElementById('emiLeadError');
+  const product = document.getElementById('emiProduct')?.value || '';
 
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  if (error) {
+    error.hidden = true;
+    error.classList.remove('show');
+  }
+  success?.classList.remove('show');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+  }
+
+  try {
+    await sendToSupport({
+      ...formPayload(form),
+      _subject: `EMI Calculator enquiry — ${product}`,
+      form_source: 'EMI Calculator Unlock',
+      page: window.location.href,
+    });
+    success?.classList.add('show');
+    setTimeout(() => unlockEmiCalculator(product), 600);
+  } catch (err) {
+    if (error) {
+      error.hidden = false;
+      error.classList.add('show');
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Unlock EMI Calculator';
+    }
+  }
+});
+
+if (isEmiUnlocked() && emiCalcPanel) {
+  unlockEmiCalculator(undefined, { persist: false });
+} else if (getEmiUnlockAt()) {
+  clearEmiUnlock();
+}
 // FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
   const q = item.querySelector('.faq-q');
@@ -298,19 +642,54 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Contact forms
+// Contact forms → support@prateekfinserve.com
 document.querySelectorAll('.contact-form').forEach(form => {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const success = form.querySelector('.form-success');
-    if (success) {
-      success.classList.add('show');
+    const error = form.querySelector('.form-error');
+    const btn = form.querySelector('button[type="submit"]');
+    const originalLabel = btn?.textContent;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (error) {
+      error.hidden = true;
+      error.classList.remove('show');
+    }
+    success?.classList.remove('show');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+    }
+
+    try {
+      const payload = formPayload(form);
+      await sendToSupport({
+        ...payload,
+        _subject: `Website enquiry — ${payload.service || payload.enquiryType || 'General'}`,
+        form_source: form.id === 'pageContactForm' ? 'Contact Page' : 'Homepage Contact',
+        page: window.location.href,
+      });
+      success?.classList.add('show');
       form.reset();
-      setTimeout(() => success.classList.remove('show'), 6000);
+      setTimeout(() => success?.classList.remove('show'), 8000);
+    } catch (err) {
+      if (error) {
+        error.hidden = false;
+        error.classList.add('show');
+      }
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = originalLabel || 'Submit';
+      }
     }
   });
 });
-
 // Insurance tabs
 const tabsNav = document.getElementById('tabsNav');
 const tabPanels = document.getElementById('tabPanels');
