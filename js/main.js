@@ -428,28 +428,6 @@ finderTabs?.addEventListener('click', (e) => {
   setFinderOptions(btn.dataset.cat);
 });
 
-document.getElementById('finderForm')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const looking = lookingFor?.value || '';
-  const map = {
-    personal: '/loans#personal',
-    home: '/loans#home',
-    business: '/loans#business',
-    education: '/loans#education',
-    car: '/loans#car',
-    vehicle: '/loans#vehicle',
-    od: '/loans#od',
-    cc: '/loans#cc',
-    lap: '/loans#lap',
-    life: '/insurance#life',
-    term: '/insurance#term',
-    health: '/insurance#health',
-    general: '/insurance#general',
-    'vehicle-ins': '/insurance#vehicle',
-  };
-  window.location.href = map[looking] || '/contact';
-});
-
 // Email submissions → support@prateekfinserve.com (FormSubmit)
 const SUPPORT_EMAIL = 'support@prateekfinserve.com';
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${SUPPORT_EMAIL}`;
