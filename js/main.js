@@ -432,22 +432,22 @@ document.getElementById('finderForm')?.addEventListener('submit', (e) => {
   e.preventDefault();
   const looking = lookingFor?.value || '';
   const map = {
-    personal: 'loans.html#personal',
-    home: 'loans.html#home',
-    business: 'loans.html#business',
-    education: 'loans.html#education',
-    car: 'loans.html#car',
-    vehicle: 'loans.html#vehicle',
-    od: 'loans.html#od',
-    cc: 'loans.html#cc',
-    lap: 'loans.html#lap',
-    life: 'insurance.html#life',
-    term: 'insurance.html#term',
-    health: 'insurance.html#health',
-    general: 'insurance.html#general',
-    'vehicle-ins': 'insurance.html#vehicle',
+    personal: '/loans#personal',
+    home: '/loans#home',
+    business: '/loans#business',
+    education: '/loans#education',
+    car: '/loans#car',
+    vehicle: '/loans#vehicle',
+    od: '/loans#od',
+    cc: '/loans#cc',
+    lap: '/loans#lap',
+    life: '/insurance#life',
+    term: '/insurance#term',
+    health: '/insurance#health',
+    general: '/insurance#general',
+    'vehicle-ins': '/insurance#vehicle',
   };
-  window.location.href = map[looking] || 'contact.html';
+  window.location.href = map[looking] || '/contact';
 });
 
 // Email submissions → support@prateekfinserve.com (FormSubmit)
