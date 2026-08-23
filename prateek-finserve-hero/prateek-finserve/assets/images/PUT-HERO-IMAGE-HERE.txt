@@ -1,0 +1,19 @@
+Place your final hero photograph in this folder and name it:
+
+  hero-finance.jpg
+
+(You can also use hero-finance.webp or another name — just update the
+<img src="..."> in index.html accordingly.)
+
+Direction for the photo: an Indian financial advisor (30s–40s) having a
+relaxed, confident consultation with a young Indian couple or small-business
+owner in a modern, elegant office. Cinematic, editorial-quality lifestyle
+photography. Somewhat blurred, sophisticated background. A laptop or tablet
+may be present — the focus should stay on the people.
+
+Flags:
+  - No handshakes, no pointing at charts, no coins/currency props,
+    no calculators, no piggy banks, no generic bank interiors.
+
+While this file is missing, the hero automatically falls back to a styled
+navy gradient placeholder, so the layout never looks broken.

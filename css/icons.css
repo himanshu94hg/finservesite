@@ -1,0 +1,57 @@
+/* Shared professional line icons — used via .ico inside circular containers */
+.ico {
+  width: 22px;
+  height: 22px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.quick-icon,
+.feature-card .icon,
+.product-card .icon,
+.ci-ico,
+.why-icon {
+  display: inline-grid !important;
+  place-items: center;
+  line-height: 0;
+  font-size: 0;
+  color: var(--maroon);
+}
+
+/* Contact panel sits on maroon — icons must be white */
+.contact-side .ci-ico {
+  color: #fff !important;
+}
+
+.quick-icon .ico,
+.feature-card .icon .ico,
+.product-card .icon .ico,
+.ci-ico .ico,
+.why-icon .ico {
+  width: 22px;
+  height: 22px;
+}
+
+.why-icon .ico {
+  width: 24px;
+  height: 24px;
+}
+
+/* Scale line icons when the circular container is enlarged */
+.product-card .icon[style*="72px"] .ico,
+.icon.ico-lg .ico {
+  width: 32px;
+  height: 32px;
+}
+
+.sticky-bar a .ico {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: 0;
+  color: #fff;
+}
+
+.sticky-bar a {
+  font-size: 12px;
+}

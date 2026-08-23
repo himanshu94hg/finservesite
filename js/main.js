@@ -14,12 +14,12 @@ const partners = [
   { name: 'Unity SFB', type: 'pvt', label: 'Small Finance Bank', slug: 'unity-sfb', domain: 'theunitybank.com' },
   { name: 'Saraswat Bank', type: 'pvt', label: 'Co-operative Bank', slug: 'saraswat-bank', domain: 'saraswatbank.com' },
   // Govt / PSU banks (CGTMSE)
-  { name: 'State Bank of India', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'state-bank-of-india', domain: 'sbi.co.in' },
-  { name: 'Punjab National Bank', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'punjab-national-bank', domain: 'pnbindia.in' },
-  { name: 'Bank of Baroda', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'bank-of-baroda', domain: 'bankofbaroda.in' },
-  { name: 'Canara Bank', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'canara-bank', domain: 'canarabank.com' },
-  { name: 'Union Bank of India', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'union-bank-of-india', domain: 'unionbankofindia.co.in' },
-  { name: 'Indian Bank', type: 'govt', label: 'Govt Bank Â· CGTMSE', slug: 'indian-bank', domain: 'indianbank.in' },
+  { name: 'State Bank of India', type: 'govt', label: 'Govt Bank · CGTMSE', slug: 'state-bank-of-india', domain: 'sbi.co.in' },
+  { name: 'Punjab National Bank', type: 'govt', label: 'Govt Bank · CGTMSE', slug: 'punjab-national-bank', domain: 'pnbindia.in' },
+  { name: 'Bank of Baroda', type: 'govt', label: 'Govt Bank · CGTMSE', slug: 'bank-of-baroda', domain: 'bankofbaroda.in' },
+  { name: 'Canara Bank', type: 'govt', label: 'Govt Bank · CGTMSE', slug: 'canara-bank', domain: 'canarabank.com' },
+  { name: 'Union Bank of India', type: 'govt', label: 'Govt Bank · CGTMSE', slug: 'union-bank-of-india', domain: 'unionbankofindia.co.in' },
+  { name: 'Indian Bank', type: 'govt', label: 'Govt Bank · CGTMSE', slug: 'indian-bank', domain: 'indianbank.in' },
   // NBFCs / HFCs
   { name: 'Edelweiss', type: 'nbfc', label: 'NBFC', slug: 'edelweiss', domain: 'edelweissfin.com' },
   { name: 'Ambit', type: 'nbfc', label: 'NBFC', slug: 'ambit', domain: 'ambit.co' },
@@ -120,45 +120,63 @@ function partnerLocalSrc(slug) {
   return `assets/partners/${slug}.${ext}`;
 }
 
-/** White / light logos that need the dark plate in .partner-logo-wrap */
-const DARK_LOGO_SLUGS = new Set([
-  'ujjivan-sfb',
-  'axis-finance',
-  'lt-finance',
-  'tata-capital',
-  'muthoot-fincorp',
-  'yes-bank',
-  'punjab-national-bank',
-  'bank-of-baroda',
-  'canara-bank',
-  'union-bank-of-india',
-  'icici-bank',
-  'indusind-bank',
-  'bandhan-bank',
-  'edelweiss',
-  'ambit',
-  'arka-fincap',
-  'faircent',
-  'piramal',
-  'finnable',
-  'iifl',
-]);
+/** Shrink-only fits (never scale up — that clips wordmarks) */
+const LOGO_FIT = {
+  'bank-of-baroda': { max: 0.82 },
+  'canara-bank': { max: 0.82 },
+  'bandhan-bank': { max: 0.84 },
+  'punjab-national-bank': { max: 0.84 },
+  'indian-bank': { max: 0.86 },
+  'state-bank-of-india': { max: 0.88 },
+  'union-bank-of-india': { max: 0.86 },
+  'bajaj-finserv': { max: 0.84 },
+  'tata-capital': { max: 0.88 },
+  'lt-finance': { max: 0.88, soft: true },
+  'cholamandalam': { max: 0.88 },
+  'muthoot-fincorp': { max: 0.88, soft: true },
+  'piramal': { max: 0.84 },
+  'faircent': { max: 0.88 },
+  'icici-bank': { max: 0.9 },
+  'axis-bank': { max: 0.9 },
+  'axis-finance': { max: 0.9, soft: true },
+  'indusind-bank': { max: 0.92, blend: true },
+  'yes-bank': { max: 0.92 },
+  'ujjivan-sfb': { max: 0.95 },
+  'saraswat-bank': { max: 0.95 },
+  'vastu-finance': { max: 0.85 },
+  'aditya-birla-housing-finance': { max: 0.88 },
+  'avash-housing': { max: 0.88 },
+  'grihum-housing-finance': { max: 0.88 },
+  'godrej-capital': { max: 0.88 },
+};
+
+function partnerLogoHtml(p) {
+  const local = partnerLocalSrc(p.slug);
+  const cdn = `https://logo.clearbit.com/${p.domain}`;
+  const initials = partnerInitials(p.name);
+  const fit = LOGO_FIT[p.slug] || {};
+  const max = Math.min(fit.max || 1, 1);
+  const mods = [
+    fit.blend ? ' partner-logo--blend' : '',
+    fit.soft ? ' partner-logo--soft' : '',
+  ].join('');
+  // Eager load: lazy loading blanks tiles in a moving marquee until they enter view
+  return `<div class="partner-logo${mods}" title="${p.name}" style="--logo-max:${max}">
+    <span class="partner-logo__media">
+      <img src="${local}" alt="${p.name}" loading="eager" decoding="async" width="160" height="48"
+        data-cdn="${cdn}" data-initials="${initials}"
+        onerror="partnerLogoFallback(this)">
+      <span class="partner-initials" hidden aria-hidden="true">${initials}</span>
+    </span>
+  </div>`;
+}
 
 function renderPartnerTiles(list, container) {
   if (!container) return;
   container.innerHTML = list.map(p => {
     const cls = partnerTypeClass(p.type) + (p.label.includes('HFC') ? ' hfc' : '');
-    const local = partnerLocalSrc(p.slug);
-    const cdn = `https://logo.clearbit.com/${p.domain}`;
-    const initials = partnerInitials(p.name);
-    const tone = DARK_LOGO_SLUGS.has(p.slug) ? ' logo-on-dark' : '';
     return `<div class="partner-tile">
-      <div class="partner-logo-wrap${tone}">
-        <img class="partner-logo" src="${local}" alt="${p.name} logo" loading="lazy"
-          data-cdn="${cdn}" data-initials="${initials}"
-          onerror="partnerLogoFallback(this)">
-        <span class="partner-initials" hidden aria-hidden="true">${initials}</span>
-      </div>
+      ${partnerLogoHtml(p)}
       <span class="ptype ${cls}">${p.label}</span>
       <span class="pname">${p.name}</span>
     </div>`;
@@ -173,7 +191,8 @@ function partnerLogoFallback(img) {
   }
   img.style.display = 'none';
   img.removeAttribute('alt');
-  const initials = img.parentElement?.querySelector('.partner-initials');
+  const wrap = img.parentElement;
+  const initials = wrap?.querySelector('.partner-initials');
   if (initials) {
     initials.hidden = false;
     initials.removeAttribute('aria-hidden');
@@ -181,6 +200,37 @@ function partnerLogoFallback(img) {
 }
 window.partnerLogoFallback = partnerLogoFallback;
 
+function renderMarqueeTracks(type) {
+  const list = partners.filter(p => p.type === type);
+  if (!list.length) return;
+  document.querySelectorAll(`[data-partners="${type}"]`).forEach(track => {
+    // Repeat until we have enough tiles for a smooth infinite loop
+    let items = list.slice();
+    while (items.length < 12) items = items.concat(list);
+    items = items.concat(items); // double for translateX(-50%) seamless loop
+    track.innerHTML = items.map(partnerLogoHtml).join('');
+  });
+}
+
+function preloadPartnerLogos() {
+  const seen = new Set();
+  partners.forEach(p => {
+    const src = partnerLocalSrc(p.slug);
+    if (seen.has(src)) return;
+    seen.add(src);
+    const img = new Image();
+    img.src = src;
+  });
+}
+
+function renderPartnerMarquees() {
+  preloadPartnerLogos();
+  renderMarqueeTracks('pvt');
+  renderMarqueeTracks('govt');
+  renderMarqueeTracks('nbfc');
+}
+
+renderPartnerMarquees();
 
 const gridAll = document.getElementById('partnerGridAll');
 const gridPvt = document.getElementById('partnerGridPvt');
@@ -212,6 +262,15 @@ document.getElementById('partnerCats')?.addEventListener('click', (e) => {
   });
 });
 
+// Pause marquees on hover (Beingship-style data-pause)
+document.querySelectorAll('.marquee[data-pause]').forEach(el => {
+  el.addEventListener('mouseenter', () => el.classList.add('is-paused'));
+  el.addEventListener('mouseleave', () => el.classList.remove('is-paused'));
+});
+
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.marquee').forEach(el => el.classList.add('is-paused'));
+}
 // Mobile nav
 const menuToggle = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');
