@@ -350,11 +350,21 @@ if (menuToggle && mobileNav) {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', () => { goTo(index + 1, true); });
 
-  banner.addEventListener('mouseenter', stop);
-  banner.addEventListener('mouseleave', start);
-  banner.addEventListener('focusin', stop);
-  banner.addEventListener('focusout', (e) => {
-    if (!banner.contains(e.relatedTarget)) start();
+  // Pause only while the user is interacting with the finder or controls —
+  // not for the whole banner (full-bleed heroes keep the cursor over them,
+  // which was stopping autoplay on slide 1 until a manual change).
+  const pauseZones = [
+    banner.querySelector('.finder'),
+    banner.querySelector('.hero-slider-controls'),
+  ].filter(Boolean);
+
+  pauseZones.forEach((zone) => {
+    zone.addEventListener('mouseenter', stop);
+    zone.addEventListener('mouseleave', start);
+    zone.addEventListener('focusin', stop);
+    zone.addEventListener('focusout', (e) => {
+      if (!zone.contains(e.relatedTarget)) start();
+    });
   });
 
   document.addEventListener('visibilitychange', () => {
