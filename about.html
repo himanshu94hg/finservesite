@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us ? Prateek Finserve | Delhi</title>
-  <meta name="description" content="Prateek Finserve is a Delhi-based firm offering loans and insurance for individuals and businesses.">
+  <meta name="description" content="Prateek Finserve is a Delhi-based firm offering loans and insurance for individuals and businesses. Meet advisor Guddu Kumar in Shakarpur, East Delhi.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/icons.css">
 </head>
@@ -14,13 +14,24 @@
   <div class="container header-inner">
     <a href="index.html" class="logo">
       <img src="assets/logo.png" alt="Prateek Finserve">
-      <div class="logo-text"><b>PRATEEK FINSERVE</b><span>Loans &amp; Insurance</span></div>
+      <div class="logo-text">
+        <b>PRATEEK FINSERVE</b>
+        <span>Loans &amp; Insurance</span>
+      </div>
     </a>
     <ul class="nav-main">
-      <li><a href="index.html">Explore Products</a></li>
+      <li>
+        <button type="button">Explore Products ?</button>
+        <div class="dropdown">
+          <a href="loans.html">All Loans</a>
+          <a href="insurance.html">All Insurance</a>
+          <a href="loans.html#personal">Personal Loan</a>
+          <a href="loans.html#home">Home Loan</a>
+          <a href="insurance.html#health">Health Insurance</a>
+        </div>
+      </li>
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
-      <li><a href="partners.html">Partners</a></li>
       <li><a href="partners.html">Partners</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html">Apply Now</a></li>
@@ -34,86 +45,99 @@
 
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-panel">
-    <button class="mobile-nav-close" id="mobileNavClose">?</button>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close">×</button>
     <ul class="mobile-nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
       <li><a href="partners.html">Partners</a></li>
-      <li><a href="partners.html">Partners</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html">Contact / Apply</a></li>
+      <li><a href="index.html#calculator">EMI Calculator</a></li>
     </ul>
   </div>
 </div>
 
-<section class="page-banner">
-  <div class="container">
-    <h1>About Prateek Finserve</h1>
-    <p>Let's join hands &amp; help each other to grow faster.</p>
+<!-- Full-bleed intro -->
+<section class="about-hero" aria-label="About Prateek Finserve">
+  <div class="about-hero-media" aria-hidden="true">
+    <img src="assets/images/hero-general.jpg" alt="" width="1600" height="900" fetchpriority="high">
   </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="product-block">
-      <div class="product-copy">
-        <h3>We Deal in All Types of Loans &amp; Insurance</h3>
-        <p>Prateek Finserve is a Delhi-based financial services firm offering a wide range of loan and insurance solutions tailored to individuals and businesses.</p>
-        <p>Located in Shakarpur, East Delhi, we serve clients across Delhi NCR ? comparing options across banks and insurers, with one advisor from first call to disbursal.</p>
-        <a href="contact.html" class="btn-maroon">Contact Us</a>
-      </div>
-      <div class="product-visual">
-        <div class="product-visual-inner">
-          <img src="assets/logo.png" alt="Prateek Finserve" style="width:160px;height:160px;border-radius:50%;margin:0 auto 12px;object-fit:cover;background:#000;">
-          <h3>PRATEEK FINSERVE</h3>
-        </div>
-      </div>
+  <div class="container about-hero-content">
+    <p class="about-brand">Prateek Finserve</p>
+    <h1>Let's Grow Faster, Together</h1>
+    <p class="about-hero-sub">Delhi loans &amp; insurance ? compared across partners, paperwork handled end to end.</p>
+    <div class="about-hero-actions">
+      <a href="contact.html" class="btn-maroon">Talk to Us</a>
+      <a href="tel:+919643454034" class="btn-outline-maroon">+91 96434 54034</a>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
+<!-- Who we are -->
+<section class="section about-story">
+  <div class="container about-split">
+    <div class="about-split-copy">
+      <p class="section-eyebrow">Who We Are</p>
+      <h2>We Deal in All Types of Loans &amp; Insurance</h2>
+      <p>Prateek Finserve is an East Delhi advisory firm for individuals and businesses who need the right loan or cover ? not the first offer that lands on the desk.</p>
+      <p>From Shakarpur we compare banks, NBFCs and insurers, then stay with your case from first call through documentation and disbursal.</p>
+      <ul class="about-checklist">
+        <li>Personal, home, business, OD, CC &amp; LAP</li>
+        <li>Life, term, health, vehicle &amp; general cover</li>
+        <li>LIC relation &amp; CGTMSE via government banks</li>
+      </ul>
+    </div>
+    <figure class="about-split-media">
+      <img src="assets/images/hero-msme.jpg" alt="Client consultation at Prateek Finserve" width="1024" height="571" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- Promise ? no cards -->
+<section class="section section-alt about-promise">
   <div class="container">
     <div class="section-head center">
       <h2>Our Promise</h2>
+      <p>Clear advice. Compared options. One team beside you.</p>
     </div>
-    <div class="feature-strip">
-      <div class="feature-card">
-        <div class="icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/></svg></div>
+    <div class="about-promise-row">
+      <div class="about-promise-item">
+        <span class="about-promise-num" aria-hidden="true">01</span>
         <h3>Honest Advice</h3>
-        <p>East Delhi's trusted advisory ? clear guidance, not a hard sell.</p>
+        <p>Guidance you can act on ? not a hard sell.</p>
       </div>
-      <div class="feature-card">
-        <div class="icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 13 2.5 2.5a2 2 0 0 0 2.8 0L18 11"/><path d="m14 9 1.5-1.5a2 2 0 0 1 2.8 0L21 10"/><path d="m3 12 2.5-2.5a2 2 0 0 1 2.8 0L11 12"/><path d="M8 13v4M16 11v5"/></svg></div>
+      <div class="about-promise-item">
+        <span class="about-promise-num" aria-hidden="true">02</span>
         <h3>Transparent Process</h3>
-        <p>No hidden charges. Fees explained before you proceed.</p>
+        <p>Fees and steps explained before you proceed.</p>
       </div>
-      <div class="feature-card">
-        <div class="icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10 12 4l9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18"/></svg></div>
-        <h3>Multi-Partner</h3>
-        <p>Multiple banks and insurers ? compared options every time.</p>
+      <div class="about-promise-item">
+        <span class="about-promise-num" aria-hidden="true">03</span>
+        <h3>Multi-Partner Access</h3>
+        <p>Banks, NBFCs and insurers compared for fit.</p>
       </div>
-      <div class="feature-card">
-        <div class="icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v3H8V4Z"/><path d="M6 7h12v14H6V7Z"/><path d="M10 12h4M10 16h4"/></svg></div>
-        <h3>End-to-End</h3>
-        <p>From documents to disbursal ? we handle the heavy lifting.</p>
+      <div class="about-promise-item">
+        <span class="about-promise-num" aria-hidden="true">04</span>
+        <h3>End-to-End Care</h3>
+        <p>Documents to disbursal ? we carry the load.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container" style="max-width:640px;text-align:center;">
-    <div class="section-head center">
-      <h2>Your Advisor</h2>
-    </div>
-    <div class="product-card" style="text-align:center;">
-      <div class="icon ico-lg" style="margin:0 auto 16px;width:72px;height:72px;"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></div>
-      <h3 style="font-size:22px;">Guddu Kumar</h3>
-      <p style="color:var(--maroon);font-weight:700;">Business Head, Prateek Finserve</p>
-      <p>Personally oversees client cases ? right product, best available terms.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+<!-- Advisor -->
+<section class="section about-advisor">
+  <div class="container about-split about-split--reverse">
+    <figure class="about-split-media">
+      <img src="assets/images/hero-cgtmse.jpg" alt="Financial advisory meeting" width="1024" height="571" loading="lazy">
+    </figure>
+    <div class="about-split-copy">
+      <p class="section-eyebrow">Your Advisor</p>
+      <h2>Guddu Kumar</h2>
+      <p class="about-role">Business Head, Prateek Finserve</p>
+      <p>Personally oversees client cases ? matching the right product and the best available terms across our lending and insurance partners.</p>
+      <div class="about-hero-actions">
         <a href="tel:+919643454034" class="btn-maroon">Call Now</a>
         <a href="https://www.linkedin.com/in/guddu-kumar-686721104/" target="_blank" rel="noopener" class="btn-outline-maroon">LinkedIn</a>
       </div>
@@ -121,11 +145,18 @@
   </div>
 </section>
 
-<section class="section section-maroon">
-  <div class="container" style="text-align:center;">
-    <h2 style="color:#fff;margin:0 0 12px;font-size:28px;">Visit Our Office</h2>
-    <p style="color:rgba(255,255,255,0.85);margin:0 0 24px;">Building No.-10, Office No.-202, Sharma Complex, Shakarpur, New Delhi East Delhi 110092</p>
-    <a href="contact.html" class="btn-white">Get Directions</a>
+<!-- Visit -->
+<section class="about-visit">
+  <div class="about-visit-media" aria-hidden="true">
+    <img src="assets/images/business-credit.jpg" alt="" width="1600" height="900" loading="lazy">
+  </div>
+  <div class="container about-visit-content">
+    <h2>Visit Our Office</h2>
+    <p>Building No.-10, Office No.-202, Sharma Complex,<br>Shakarpur, New Delhi East Delhi 110092</p>
+    <div class="about-hero-actions">
+      <a href="contact.html" class="btn-white">Get Directions</a>
+      <a href="tel:+919643454034" class="btn-outline-white">Call the Office</a>
+    </div>
   </div>
 </section>
 
