@@ -555,8 +555,8 @@ function drawDonut(principal, interest) {
   let start = -Math.PI / 2;
 
   const slices = [
-    { value: principal, color: '#C41E3A' },
-    { value: interest, color: '#00B4E6' },
+    { value: principal, color: '#00b1ef' },
+    { value: interest, color: '#e91c21' },
   ];
 
   slices.forEach(slice => {

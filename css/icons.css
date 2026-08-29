@@ -18,7 +18,7 @@
   color: var(--maroon);
 }
 
-/* Contact panel sits on maroon — icons must be white */
+/* Icons inherit brand color on light backgrounds */
 .contact-side .ci-ico {
   color: #fff !important;
 }

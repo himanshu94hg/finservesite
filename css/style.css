@@ -1,15 +1,23 @@
 /* =========================================================
-   PRATEEK FINSERVE — Axis Bank–inspired layout
-   Brand: logo red + cyan on clean white / soft pink hero
+   PRATEEK FINSERVE — clean layout
+   Brand: logo cyan #00b1ef + accent red #e91c21
    ========================================================= */
 :root {
-  --maroon: #C41E3A;
-  --maroon-deep: #9B1830;
-  --maroon-dark: #6B1020;
-  --cyan: #00B4E6;
-  --pink-soft: #FDF2F5;
-  --pink-mid: #F8E4EA;
-  --lavender: #F5F0F7;
+  --brand: #00b1ef;
+  --brand-deep: #0092c7;
+  --brand-dark: #006d96;
+  --brand-rgb: 0, 177, 239;
+  --accent: #e91c21;
+  --accent-deep: #c4181c;
+  --accent-rgb: 233, 28, 33;
+  /* Legacy aliases — existing styles keep working */
+  --maroon: var(--brand);
+  --maroon-deep: var(--brand-deep);
+  --maroon-dark: var(--brand-dark);
+  --cyan: var(--brand);
+  --pink-soft: #EFF9FE;
+  --pink-mid: #D9F2FD;
+  --lavender: #F5FAFD;
   --white: #FFFFFF;
   --off: #F7F7F8;
   --text: #2B2B2B;
@@ -288,7 +296,7 @@ ul {
 
 .hero[data-theme="lic"] {
   --hero-veil: rgba(255, 255, 255, 0.96);
-  --hero-veil-mid: rgba(252, 246, 248, 0.82);
+  --hero-veil-mid: rgba(248, 252, 254, 0.82);
 }
 
 .hero-slider {
@@ -342,7 +350,7 @@ ul {
   border-radius: 0;
   box-shadow: none;
   aspect-ratio: auto;
-  background: #2a1518;
+  background: #0a3040;
 }
 
 .hero-slide-media img {
@@ -398,42 +406,24 @@ ul {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--maroon);
+  color: var(--brand);
   background: rgba(255, 255, 255, 0.82);
   border-radius: 999px;
-  border: 1px solid rgba(196, 30, 58, 0.15);
+  border: 1px solid rgba(0, 177, 239, 0.15);
   backdrop-filter: blur(6px);
-}
-
-.hero[data-theme="msme"] .hero-eyebrow {
-  color: #0a6a86;
-  border-color: rgba(0, 140, 180, 0.25);
-}
-
-.hero[data-theme="cgtmse"] .hero-eyebrow {
-  color: #0d5c3d;
-  border-color: rgba(13, 92, 61, 0.25);
 }
 
 .hero h1 {
   font-size: clamp(30px, 4.2vw, 50px);
   font-weight: 700;
-  color: var(--maroon);
+  color: #0a4f66;
   margin: 0 0 14px;
   line-height: 1.18;
 }
 
-.hero[data-theme="msme"] h1 {
-  color: #0a4f66;
-}
-
-.hero[data-theme="cgtmse"] h1 {
-  color: #0d5c3d;
-}
-
 .hero .hero-sub {
   font-size: 20px;
-  color: var(--text-soft);
+  color: #0a4f66;
   margin: 0 0 22px;
   max-width: 70%;
   line-height: 1.55;
@@ -715,7 +705,7 @@ ul {
   border-radius: 50%;
   border: none;
   padding: 0;
-  background: rgba(196, 30, 58, 0.25);
+  background: rgba(0, 177, 239, 0.25);
   cursor: pointer;
   transition: transform 0.2s, background 0.2s, width 0.2s;
 }
@@ -1128,8 +1118,8 @@ ul {
   height: 56px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  border: 1.5px solid rgba(196, 30, 58, 0.22);
-  background: rgba(196, 30, 58, 0.06);
+  border: 1.5px solid rgba(0, 177, 239, 0.22);
+  background: rgba(0, 177, 239, 0.06);
   color: var(--maroon);
   display: grid;
   place-items: center;
@@ -1170,8 +1160,8 @@ ul {
   height: 56px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  border: 1.5px solid rgba(196, 30, 58, 0.22);
-  background: rgba(196, 30, 58, 0.06);
+  border: 1.5px solid rgba(0, 177, 239, 0.22);
+  background: rgba(0, 177, 239, 0.06);
   color: var(--maroon);
   display: grid;
   place-items: center;
@@ -1209,7 +1199,7 @@ ul {
 .emi-aside-media {
   border-radius: 12px;
   overflow: hidden;
-  background: var(--pink-mid, #f7e8ec);
+  background: var(--pink-mid, #D9F2FD);
   aspect-ratio: 4 / 3;
 }
 
@@ -1470,7 +1460,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .calc-legend .int {
-  background: var(--cyan);
+  background: var(--accent);
 }
 
 .calc-emi-box {
@@ -1491,7 +1481,7 @@ input[type=range]::-webkit-slider-thumb {
   color: var(--maroon);
 }
 
-/* ---------- ABOUT STRIP (maroon) ---------- */
+/* ---------- ABOUT STRIP (brand) ---------- */
 .about-strip {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1593,7 +1583,7 @@ input[type=range]::-webkit-slider-thumb {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--maroon);
-  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 177, 239, 0.1);
 }
 
 .form-group textarea {
@@ -1624,7 +1614,7 @@ input[type=range]::-webkit-slider-thumb {
 .form-error {
   display: none;
   background: #fdecef;
-  color: #9b1c2e;
+  color: var(--accent-deep);
   padding: 14px 16px;
   border-radius: 6px;
   font-size: 14px;
@@ -1709,20 +1699,14 @@ input[type=range]::-webkit-slider-thumb {
 /* ---------- PAGE BANNER ---------- */
 .banner-mark {
   display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  padding: 0 0.2em 0.06em;
-  line-height: 1.45;
-  background: linear-gradient(to bottom, transparent 44%, #f0b4c2 44%);
+  padding: 0;
+  line-height: inherit;
 }
 
 .banner-mark-sub {
   display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  padding: 0 0.18em 0.05em;
-  line-height: 1.55;
-  background: linear-gradient(to bottom, transparent 54%, #f6ccd6 54%);
+  padding: 0;
+  line-height: inherit;
 }
 
 .page-banner {
@@ -2063,7 +2047,7 @@ input[type=range]::-webkit-slider-thumb {
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--maroon-dark, #8B1528);
+  background: var(--maroon-dark, #006d96);
   z-index: 900;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
   padding-bottom: env(safe-area-inset-bottom, 0);
@@ -2125,7 +2109,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .sticky-bar a:last-child:hover {
-  background: var(--maroon-deep, #9a1830);
+  background: var(--maroon-deep, #0092c7);
 }
 
 /* ---------- MOBILE NAV ---------- */
@@ -2472,7 +2456,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .partner-logo:hover {
-  border-color: rgba(196, 30, 58, 0.28);
+  border-color: rgba(0, 177, 239, 0.28);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
@@ -2534,9 +2518,9 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .tech-pill:hover {
-  border-color: rgba(196, 30, 58, 0.35);
+  border-color: rgba(0, 177, 239, 0.35);
   color: var(--maroon);
-  background: rgba(196, 30, 58, 0.05);
+  background: rgba(0, 177, 239, 0.05);
 }
 
 .partners-note {
@@ -2808,7 +2792,6 @@ input[type=range]::-webkit-slider-thumb {
 
 .about-hero h1 .banner-mark {
   color: #fff;
-  background: linear-gradient(to bottom, transparent 44%, rgba(255, 255, 255, 0.34) 44%);
 }
 
 .about-hero-sub {
@@ -2820,7 +2803,6 @@ input[type=range]::-webkit-slider-thumb {
 
 .about-hero-sub .banner-mark-sub {
   color: rgba(255, 255, 255, 0.95);
-  background: linear-gradient(to bottom, transparent 54%, rgba(255, 255, 255, 0.22) 54%);
 }
 
 .about-hero-actions {
@@ -2987,7 +2969,7 @@ input[type=range]::-webkit-slider-thumb {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(105deg, rgba(107, 16, 32, 0.92) 0%, rgba(196, 30, 58, 0.78) 55%, rgba(20, 8, 12, 0.55) 100%);
+    linear-gradient(105deg, rgba(0, 109, 150, 0.92) 0%, rgba(0, 177, 239, 0.78) 55%, rgba(0, 40, 60, 0.55) 100%);
 }
 
 .about-visit-content {
@@ -3247,7 +3229,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .career-badge {
   flex-shrink: 0;
-  background: rgba(196, 30, 58, 0.08);
+  background: rgba(0, 177, 239, 0.08);
   color: var(--maroon);
   font-size: 11px;
   font-weight: 700;
@@ -3255,7 +3237,7 @@ input[type=range]::-webkit-slider-thumb {
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(196, 30, 58, 0.2);
+  border: 1px solid rgba(0, 177, 239, 0.2);
 }
 
 .career-summary {
@@ -3314,7 +3296,7 @@ input[type=range]::-webkit-slider-thumb {
   align-items: flex-start;
   gap: 12px;
   background: var(--pink-soft);
-  border: 1px solid rgba(196, 30, 58, 0.15);
+  border: 1px solid rgba(0, 177, 239, 0.15);
   border-radius: 8px;
   padding: 14px 16px;
   margin-bottom: 22px;
