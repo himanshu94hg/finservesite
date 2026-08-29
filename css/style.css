@@ -1696,6 +1696,66 @@ input[type=range]::-webkit-slider-thumb {
   align-items: start;
 }
 
+.contact-form-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.contact-tab {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.contact-tab:hover {
+  border-color: rgba(0, 177, 239, 0.35);
+  color: var(--brand);
+}
+
+.contact-tab.active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+.contact-form-panels {
+  min-width: 0;
+}
+
+.contact-form-panel {
+  display: none;
+}
+
+.contact-form-panel.active {
+  display: block;
+}
+
+.form-intro {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+
+@media (max-width: 640px) {
+  .contact-form-tabs {
+    flex-direction: column;
+  }
+
+  .contact-tab {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* ---------- PAGE BANNER ---------- */
 .banner-mark {
   display: inline;

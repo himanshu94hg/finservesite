@@ -716,7 +716,55 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Pre-fill contact form from ?role= (careers page apply links)
+// Pre-fill contact form from ?role= (careers page apply links) — runs after tab init below
+
+function contactFormSource(form) {
+  if (form.id === 'customerLoanForm') return 'Customer Loan Enquiry';
+  if (form.id === 'partnerDsaForm') return 'Channel Partner / DSA Enquiry';
+  if (form.id === 'pageContactForm') return 'Contact Page';
+  return 'Homepage Contact';
+}
+
+function setContactFormTab(which) {
+  const tabs = document.querySelectorAll('#contactFormTabs .contact-tab');
+  const panels = document.querySelectorAll('.contact-form-panel');
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach((tab) => {
+    const on = tab.dataset.form === which;
+    tab.classList.toggle('active', on);
+    tab.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  panels.forEach((panel) => {
+    const on = panel.dataset.panel === which;
+    panel.classList.toggle('active', on);
+    panel.hidden = !on;
+  });
+}
+
+(function initContactFormTabs() {
+  const tabsWrap = document.getElementById('contactFormTabs');
+  if (!tabsWrap) return;
+
+  tabsWrap.addEventListener('click', (e) => {
+    const tab = e.target.closest('.contact-tab');
+    if (!tab) return;
+    setContactFormTab(tab.dataset.form);
+    const hash = tab.dataset.form === 'partner' ? 'partner-enquiry' : 'loan-enquiry';
+    history.replaceState(null, '', `#${hash}`);
+  });
+
+  const hash = window.location.hash.replace('#', '');
+  if (hash === 'partner-enquiry') setContactFormTab('partner');
+  else setContactFormTab('loan');
+
+  window.addEventListener('hashchange', () => {
+    const h = window.location.hash.replace('#', '');
+    if (h === 'partner-enquiry') setContactFormTab('partner');
+    else if (h === 'loan-enquiry') setContactFormTab('loan');
+  });
+})();
+
 (function initCareerApplyPrefill() {
   const params = new URLSearchParams(window.location.search);
   const role = params.get('role');
@@ -728,18 +776,9 @@ document.querySelectorAll('.faq-item').forEach(item => {
   };
   const roleLabel = roleMap[role] || role;
 
-  const enquiry = document.getElementById('enquiryType');
-  const roleSelect = document.getElementById('role');
-  const message = document.getElementById('message');
+  setContactFormTab('loan');
 
-  if (enquiry) {
-    const careerOpt = [...enquiry.options].find(o => o.textContent === 'Career Application');
-    if (careerOpt) enquiry.value = careerOpt.textContent;
-  }
-  if (roleSelect) {
-    const match = [...roleSelect.options].find(o => o.value === roleLabel);
-    if (match) roleSelect.value = roleLabel;
-  }
+  const message = document.getElementById('loanMessage');
   if (message && !message.value.trim()) {
     message.value = `I am applying for the ${roleLabel} position at Prateek Finserve.`;
   }
@@ -771,10 +810,11 @@ document.querySelectorAll('.contact-form').forEach(form => {
 
     try {
       const payload = formPayload(form);
+      const source = contactFormSource(form);
       await sendToSupport({
         ...payload,
-        _subject: `Website enquiry — ${payload.service || payload.enquiryType || 'General'}`,
-        form_source: form.id === 'pageContactForm' ? 'Contact Page' : 'Homepage Contact',
+        _subject: `Website enquiry — ${payload.enquiryType || payload.loanType || payload.partnerType || source}`,
+        form_source: source,
         page: window.location.href,
       });
       success?.classList.add('show');

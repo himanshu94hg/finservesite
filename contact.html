@@ -43,6 +43,8 @@
         <div class="dropdown">
           <a href="/loans">All Loans</a>
           <a href="/insurance">All Insurance</a>
+          <a href="/contact#loan-enquiry">Loan Enquiry</a>
+          <a href="/contact#partner-enquiry">DSA / Partner Enquiry</a>
           <a href="/loans#home">Home Loan</a>
           <a href="/loans#personal">Personal Loan</a>
           <a href="/insurance#health">Health Insurance</a>
@@ -78,6 +80,8 @@
         <ul class="mobile-nav-sub">
           <li><a href="/loans">All Loans</a></li>
           <li><a href="/insurance">All Insurance</a></li>
+          <li><a href="/contact#loan-enquiry">Loan Enquiry</a></li>
+          <li><a href="/contact#partner-enquiry">DSA / Partner Enquiry</a></li>
           <li><a href="/loans#home">Home Loan</a></li>
           <li><a href="/loans#personal">Personal Loan</a></li>
           <li><a href="/insurance#health">Health Insurance</a></li>
@@ -102,84 +106,147 @@
 <section class="page-banner">
   <div class="container">
     <h1><span class="banner-mark">Contact Us</span></h1>
-    <p><span class="banner-mark-sub">Loan and insurance enquiries &mdash; we respond within 24 hours.</span></p>
+    <p><span class="banner-mark-sub">Customer loan enquiries and channel partner / DSA applications &mdash; we respond within 24 hours.</span></p>
   </div>
 </section>
 
 <section class="section section-alt">
   <div class="container">
+    <div class="contact-form-tabs" id="contactFormTabs" role="tablist" aria-label="Enquiry type">
+      <button type="button" class="contact-tab active" role="tab" aria-selected="true" aria-controls="customerLoanForm" id="loanEnquiryTab" data-form="loan">Customer Loan Enquiry</button>
+      <button type="button" class="contact-tab" role="tab" aria-selected="false" aria-controls="partnerDsaForm" id="partnerEnquiryTab" data-form="partner">Channel Partner / DSA</button>
+    </div>
     <div class="form-grid-2">
-      <form class="form-card contact-form" id="pageContactForm">
-        <h3 style="margin:0 0 20px;font-size:20px;">Send an Enquiry</h3>
-        <div class="form-success">Thank you! We'll get back within 24 hours.</div>
-        <div class="form-error" hidden>Could not send. Please try again or email support@prateekfinserve.com.</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required>
+      <div class="contact-form-panels">
+        <form class="form-card contact-form contact-form-panel active" id="customerLoanForm" data-panel="loan" role="tabpanel" aria-labelledby="loanEnquiryTab">
+          <h3 style="margin:0 0 8px;font-size:20px;">Customer Loan Enquiry</h3>
+          <p class="form-intro">Apply for a loan or insurance cover &mdash; tell us what you need and we'll compare options across our banking partners.</p>
+          <div class="form-success">Thank you! Our loan advisor will call you within 24 hours.</div>
+          <div class="form-error" hidden>Could not send. Please try again or email support@prateekfinserve.com.</div>
+          <input type="hidden" name="enquiryType" value="Customer Loan Enquiry">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="loanName">Full Name *</label>
+              <input type="text" id="loanName" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="loanPhone">Phone *</label>
+              <input type="tel" id="loanPhone" name="phone" required autocomplete="tel">
+            </div>
           </div>
           <div class="form-group">
-            <label for="phone">Phone *</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="loanEmail">Email</label>
+            <input type="email" id="loanEmail" name="email" autocomplete="email">
           </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email">
-        </div>
-        <div class="form-group">
-          <label for="enquiryType">Enquiry type *</label>
-          <select id="enquiryType" name="enquiryType" required>
-            <option value="">Select type</option>
-            <option>Loan Enquiry</option>
-            <option>Insurance Enquiry</option>
-            <option>General Query</option>
-            <option>Callback Request</option>
-            <option>Career Application</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="role">Position applying for</label>
-          <select id="role" name="role">
-            <option value="">Select role (if applicable)</option>
-            <option value="Backend Operations Executive">Backend Operations Executive</option>
-            <option value="Sales Executive">Sales Executive</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="service">Product / service</label>
-          <select id="service" name="service">
-            <option value="">Optional</option>
-            <optgroup label="Loans">
-              <option>Home Loan</option>
-              <option>Loan Against Property</option>
-              <option>Car / Used Car Loan</option>
-              <option>Personal Loan</option>
-              <option>Business Loan</option>
-              <option>Overdraft (OD)</option>
-              <option>Cash Credit (CC)</option>
-              <option>Education Loan</option>
-              <option>Vehicle Loan</option>
-              <option>Professional Loan</option>
-              <option>Machinery Loan</option>
-              <option>Gold Loan</option>
-            </optgroup>
-            <optgroup label="Insurance">
-              <option>Life Insurance</option>
-              <option>Health Insurance</option>
-              <option>Term Insurance</option>
-              <option>General Insurance</option>
-              <option>Vehicle Insurance</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn-maroon" style="width:100%;">Submit Enquiry</button>
-      </form>
+          <div class="form-group">
+            <label for="loanType">Loan / product type *</label>
+            <select id="loanType" name="loanType" required>
+              <option value="">Select type</option>
+              <optgroup label="Loans">
+                <option>Home Loan</option>
+                <option>Loan Against Property</option>
+                <option>Car / Used Car Loan</option>
+                <option>Personal Loan</option>
+                <option>Business Loan</option>
+                <option>Overdraft (OD)</option>
+                <option>Cash Credit (CC)</option>
+                <option>Education Loan</option>
+                <option>Vehicle Loan</option>
+                <option>Professional Loan</option>
+                <option>Machinery Loan</option>
+                <option>Gold Loan</option>
+              </optgroup>
+              <optgroup label="Insurance">
+                <option>Life Insurance</option>
+                <option>Health Insurance</option>
+                <option>Term Insurance</option>
+                <option>General Insurance</option>
+                <option>Vehicle Insurance</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="loanAmount">Amount required (&#8377;)</label>
+              <input type="number" id="loanAmount" name="amount" placeholder="e.g. 500000">
+            </div>
+            <div class="form-group">
+              <label for="loanCity">City</label>
+              <input type="text" id="loanCity" name="city" placeholder="e.g. Delhi">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="loanMessage">Additional details</label>
+            <textarea id="loanMessage" name="message" placeholder="Tell us about your requirement…"></textarea>
+          </div>
+          <button type="submit" class="btn-maroon" style="width:100%;">Submit Loan Enquiry</button>
+        </form>
 
+        <form class="form-card contact-form contact-form-panel" id="partnerDsaForm" data-panel="partner" role="tabpanel" aria-labelledby="partnerEnquiryTab">
+          <h3 style="margin:0 0 8px;font-size:20px;">Channel Partner / DSA Enquiry</h3>
+          <p class="form-intro">Join our network as a DSA or channel partner &mdash; multi-bank access, file support and performance-based payouts.</p>
+          <div class="form-success">Thank you! Our partnerships team will contact you within 24 hours.</div>
+          <div class="form-error" hidden>Could not send. Please try again or email support@prateekfinserve.com.</div>
+          <input type="hidden" name="enquiryType" value="Channel Partner / DSA Enquiry">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="partnerName">Full Name *</label>
+              <input type="text" id="partnerName" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="partnerPhone">Phone *</label>
+              <input type="tel" id="partnerPhone" name="phone" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="partnerEmail">Email *</label>
+            <input type="email" id="partnerEmail" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="partnerCity">City *</label>
+              <input type="text" id="partnerCity" name="city" required placeholder="e.g. Delhi">
+            </div>
+            <div class="form-group">
+              <label for="partnerType">Partnership type *</label>
+              <select id="partnerType" name="partnerType" required>
+                <option value="">Select type</option>
+                <option>DSA (Direct Selling Agent)</option>
+                <option>Channel Partner</option>
+                <option>Sub-broker / Associate</option>
+                <option>Existing Agent (switching)</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="partnerExperience">Experience in finance</label>
+              <select id="partnerExperience" name="experience">
+                <option value="">Select (optional)</option>
+                <option>Fresher / New to DSA</option>
+                <option>1–3 years</option>
+                <option>3–5 years</option>
+                <option>5+ years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="partnerProducts">Products interested in *</label>
+              <select id="partnerProducts" name="products" required>
+                <option value="">Select</option>
+                <option>Loans only</option>
+                <option>Insurance only</option>
+                <option>Loans &amp; Insurance</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="partnerMessage">Tell us about yourself *</label>
+            <textarea id="partnerMessage" name="message" required placeholder="Current setup, cities you cover, expected volume…"></textarea>
+          </div>
+          <button type="submit" class="btn-maroon" style="width:100%;">Submit Partner Enquiry</button>
+        </form>
+      </div>
       <div>
         <div class="contact-side" style="margin-bottom:20px;">
           <h3>Contact Details</h3>
