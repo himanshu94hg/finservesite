@@ -399,11 +399,14 @@ document.querySelectorAll('.mobile-nav-toggle').forEach((btn) => {
 // Product finder tabs â€” swap "looking for" options
 const finderOptions = {
   loans: [
-    ['personal', 'Personal Loan'],
     ['home', 'Home Loan'],
-    ['business', 'Business Loan'],
-    ['education', 'Education Loan'],
+    ['lap', 'Loan Against Property'],
     ['car', 'Car / Used Car Loan'],
+    ['personal', 'Personal Loan'],
+    ['business', 'Business Loan'],
+    ['od', 'Overdraft (OD)'],
+    ['cc', 'Cash Credit (CC)'],
+    ['education', 'Education Loan'],
     ['vehicle', 'Vehicle Loan'],
     ['professional', 'Professional Loan'],
     ['machinery', 'Machinery Loan'],
@@ -411,16 +414,16 @@ const finderOptions = {
   ],
   insurance: [
     ['life', 'Life Insurance'],
-    ['term', 'Term Insurance'],
     ['health', 'Health Insurance'],
+    ['term', 'Term Insurance'],
     ['general', 'General Insurance'],
     ['vehicle-ins', 'Vehicle Insurance'],
   ],
   business: [
     ['business', 'Business Loan'],
+    ['lap', 'Loan Against Property'],
     ['od', 'Overdraft (OD)'],
     ['cc', 'Cash Credit (CC)'],
-    ['lap', 'Loan Against Property'],
     ['machinery', 'Machinery Loan'],
   ],
   property: [
@@ -801,4 +804,41 @@ if (tabsNav && tabPanels) {
     tabsNav.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
     tabPanels.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === cat));
   });
+}
+
+// Trust stats band — animated counters
+function animateCount(el) {
+  const target = parseFloat(el.dataset.count);
+  if (Number.isNaN(target)) return;
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const start = performance.now();
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    el.textContent = Math.round(target).toLocaleString('en-IN') + suffix;
+    return;
+  }
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.round(target * eased);
+    el.textContent = value.toLocaleString('en-IN') + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const trustStatsBand = document.querySelector('.trust-stats-band');
+if (trustStatsBand) {
+  const trustObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      trustStatsBand.classList.add('is-visible');
+      trustStatsBand.querySelectorAll('[data-count]').forEach(animateCount);
+      trustObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+  trustObserver.observe(trustStatsBand);
 }
