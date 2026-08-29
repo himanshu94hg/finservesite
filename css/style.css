@@ -1,20 +1,25 @@
 /* =========================================================
    PRATEEK FINSERVE — clean layout
    Brand: logo cyan #00b1ef + accent red #e91c21
+   Accessible UI uses --brand-dark (#006d96) for text & surfaces
    ========================================================= */
 :root {
+  --brand-bright: #00b1ef;
   --brand: #00b1ef;
   --brand-deep: #0092c7;
   --brand-dark: #006d96;
+  --brand-darker: #004d6b;
+  --brand-hover: #005a7d;
+  --brand-dark-rgb: 0, 109, 150;
   --brand-rgb: 0, 177, 239;
   --accent: #e91c21;
   --accent-deep: #c4181c;
   --accent-rgb: 233, 28, 33;
-  /* Legacy aliases — existing styles keep working */
-  --maroon: var(--brand);
-  --maroon-deep: var(--brand-deep);
-  --maroon-dark: var(--brand-dark);
-  --cyan: var(--brand);
+  /* Legacy aliases — point to accessible brand for text & interactive UI */
+  --maroon: var(--brand-dark);
+  --maroon-deep: var(--brand-hover);
+  --maroon-dark: var(--brand-darker);
+  --cyan: var(--brand-dark);
   --pink-soft: #EFF9FE;
   --pink-mid: #D9F2FD;
   --lavender: #F5FAFD;
@@ -406,10 +411,10 @@ ul {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--brand-dark);
   background: rgba(255, 255, 255, 0.82);
   border-radius: 999px;
-  border: 1px solid rgba(0, 177, 239, 0.15);
+  border: 1px solid rgba(var(--brand-dark-rgb), 0.2);
   backdrop-filter: blur(6px);
 }
 
@@ -563,7 +568,7 @@ ul {
 .trust-stat__suffix {
   font-size: 0.72em;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .trust-stat__num {
@@ -575,7 +580,7 @@ ul {
   margin-top: 8px;
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.92);
   letter-spacing: 0.01em;
 }
 
@@ -705,7 +710,7 @@ ul {
   border-radius: 50%;
   border: none;
   padding: 0;
-  background: rgba(0, 177, 239, 0.25);
+  background: rgba(var(--brand-dark-rgb), 0.3);
   cursor: pointer;
   transition: transform 0.2s, background 0.2s, width 0.2s;
 }
@@ -963,7 +968,7 @@ ul {
 }
 
 .section-maroon .section-head p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .section-head.center {
@@ -1118,8 +1123,8 @@ ul {
   height: 56px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 177, 239, 0.22);
-  background: rgba(0, 177, 239, 0.06);
+  border: 1.5px solid rgba(var(--brand-dark-rgb), 0.25);
+  background: rgba(var(--brand-dark-rgb), 0.08);
   color: var(--maroon);
   display: grid;
   place-items: center;
@@ -1160,8 +1165,8 @@ ul {
   height: 56px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 177, 239, 0.22);
-  background: rgba(0, 177, 239, 0.06);
+  border: 1.5px solid rgba(var(--brand-dark-rgb), 0.25);
+  background: rgba(var(--brand-dark-rgb), 0.08);
   color: var(--maroon);
   display: grid;
   place-items: center;
@@ -1583,7 +1588,7 @@ input[type=range]::-webkit-slider-thumb {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--maroon);
-  box-shadow: 0 0 0 3px rgba(0, 177, 239, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--brand-dark-rgb), 0.15);
 }
 
 .form-group textarea {
@@ -1675,7 +1680,7 @@ input[type=range]::-webkit-slider-thumb {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  opacity: 0.7;
+  opacity: 0.88;
   margin-bottom: 4px;
 }
 
@@ -1701,6 +1706,8 @@ input[type=range]::-webkit-slider-thumb {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 24px;
+  position: relative;
+  z-index: 20;
 }
 
 .contact-tab {
@@ -1713,29 +1720,63 @@ input[type=range]::-webkit-slider-thumb {
   color: var(--text-soft);
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  line-height: 1.2;
+  font-family: inherit;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-tab:hover {
-  border-color: rgba(0, 177, 239, 0.35);
-  color: var(--brand);
+  border-color: rgba(var(--brand-dark-rgb), 0.45);
+  color: var(--brand-dark);
 }
 
-.contact-tab.active {
-  background: var(--brand);
+/* Tab highlight follows URL hash — stays in sync with visible form */
+.contact-form-tabs .contact-tab[href="#loan-enquiry"] {
+  background: var(--brand-dark);
   color: #fff;
-  border-color: var(--brand);
+  border-color: var(--brand-dark);
+}
+
+.container:has(#partner-enquiry:target) .contact-form-tabs .contact-tab[href="#loan-enquiry"] {
+  background: #fff;
+  color: var(--text-soft);
+  border-color: var(--border);
+}
+
+.container:has(#partner-enquiry:target) .contact-form-tabs .contact-tab[href="#partner-enquiry"] {
+  background: var(--brand-dark);
+  color: #fff;
+  border-color: var(--brand-dark);
+}
+
+.container:has(#partner-enquiry:target) .contact-form-tabs .contact-tab[href="#partner-enquiry"]:hover {
+  color: #fff;
 }
 
 .contact-form-panels {
   min-width: 0;
+  position: relative;
 }
 
 .contact-form-panel {
-  display: none;
+  display: none !important;
+  scroll-margin-top: 100px;
 }
 
-.contact-form-panel.active {
-  display: block;
+.contact-form-panels .contact-form-panel[data-panel="loan"] {
+  display: block !important;
+}
+
+.contact-form-panels:has(#partner-enquiry:target) .contact-form-panel[data-panel="loan"] {
+  display: none !important;
+}
+
+.contact-form-panels:has(#partner-enquiry:target) .contact-form-panel[data-panel="partner"],
+#partner-enquiry:target {
+  display: block !important;
 }
 
 .form-intro {
@@ -2065,7 +2106,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .footer-bottom {
   background: var(--maroon-dark);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.88);
   padding: 20px 0;
 }
 
@@ -2083,7 +2124,8 @@ input[type=range]::-webkit-slider-thumb {
   gap: 10px;
 }
 
-.footer-social a {
+.footer-social a,
+.social-links a {
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -2092,13 +2134,36 @@ input[type=range]::-webkit-slider-thumb {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-weight: 700;
-  font-size: 13px;
+  line-height: 0;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.footer-social a:hover {
+.footer-social a:hover,
+.social-links a:hover {
   background: var(--maroon);
   border-color: var(--maroon);
+}
+
+.footer-social .ico-social,
+.social-links .ico-social {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.contact-side .social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.contact-side .social-links a {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.contact-side .social-links a:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
 /* ---------- STICKY BOTTOM BAR ---------- */
@@ -2169,7 +2234,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .sticky-bar a:last-child:hover {
-  background: var(--maroon-deep, #0092c7);
+  background: var(--maroon-deep);
 }
 
 /* ---------- MOBILE NAV ---------- */
@@ -2516,7 +2581,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .partner-logo:hover {
-  border-color: rgba(0, 177, 239, 0.28);
+  border-color: rgba(var(--brand-dark-rgb), 0.35);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
@@ -2578,9 +2643,9 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .tech-pill:hover {
-  border-color: rgba(0, 177, 239, 0.35);
+  border-color: rgba(var(--brand-dark-rgb), 0.45);
   color: var(--maroon);
-  background: rgba(0, 177, 239, 0.05);
+  background: rgba(var(--brand-dark-rgb), 0.08);
 }
 
 .partners-note {
@@ -3289,7 +3354,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .career-badge {
   flex-shrink: 0;
-  background: rgba(0, 177, 239, 0.08);
+  background: rgba(var(--brand-dark-rgb), 0.1);
   color: var(--maroon);
   font-size: 11px;
   font-weight: 700;
@@ -3297,7 +3362,7 @@ input[type=range]::-webkit-slider-thumb {
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(0, 177, 239, 0.2);
+  border: 1px solid rgba(var(--brand-dark-rgb), 0.25);
 }
 
 .career-summary {
@@ -3356,7 +3421,7 @@ input[type=range]::-webkit-slider-thumb {
   align-items: flex-start;
   gap: 12px;
   background: var(--pink-soft);
-  border: 1px solid rgba(0, 177, 239, 0.15);
+  border: 1px solid rgba(var(--brand-dark-rgb), 0.18);
   border-radius: 8px;
   padding: 14px 16px;
   margin-bottom: 22px;

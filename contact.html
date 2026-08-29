@@ -43,8 +43,6 @@
         <div class="dropdown">
           <a href="/loans">All Loans</a>
           <a href="/insurance">All Insurance</a>
-          <a href="/contact#loan-enquiry">Loan Enquiry</a>
-          <a href="/contact#partner-enquiry">DSA / Partner Enquiry</a>
           <a href="/loans#home">Home Loan</a>
           <a href="/loans#personal">Personal Loan</a>
           <a href="/insurance#health">Health Insurance</a>
@@ -61,7 +59,13 @@
           <a href="careers.html">Careers</a>
         </div>
       </li>
-      <li><a href="/contact" class="active">Apply Now</a></li>
+      <li>
+        <button type="button" class="active">Apply Now &#9662;</button>
+        <div class="dropdown">
+          <a href="#loan-enquiry">Customer Loan Enquiry</a>
+          <a href="#partner-enquiry">Channel Partner / DSA</a>
+        </div>
+      </li>
     </ul>
     <div class="header-actions">
       <a href="/contact" class="btn-login">Contact</a>
@@ -69,6 +73,43 @@
     </div>
   </div>
 </header>
+
+<nav class="sub-nav" aria-label="Product quick links">
+  <div class="sub-nav-marquee marquee marquee--continuous">
+    <div class="marquee__track">
+      <a href="/loans#home">Home Loan</a>
+      <a href="/loans#lap">Loan Against Property</a>
+      <a href="/loans#car">Car Loan</a>
+      <a href="/loans#personal">Personal Loan</a>
+      <a href="/loans#business">Business Loan</a>
+      <a href="/loans#od">Overdraft (OD)</a>
+      <a href="/loans#cc">Cash Credit (CC)</a>
+      <a href="/loans#education">Education Loan</a>
+      <a href="/loans#vehicle">Vehicle Loan</a>
+      <a href="/loans#professional">Professional Loan</a>
+      <a href="/loans#machinery">Machinery Loan</a>
+      <a href="/loans#gold">Gold Loan</a>
+      <a href="/insurance#life">Life Insurance</a>
+      <a href="/insurance#health">Health Insurance</a>
+      <a href="/insurance#term">Term Insurance</a>
+      <a href="/loans#home">Home Loan</a>
+      <a href="/loans#lap">Loan Against Property</a>
+      <a href="/loans#car">Car Loan</a>
+      <a href="/loans#personal">Personal Loan</a>
+      <a href="/loans#business">Business Loan</a>
+      <a href="/loans#od">Overdraft (OD)</a>
+      <a href="/loans#cc">Cash Credit (CC)</a>
+      <a href="/loans#education">Education Loan</a>
+      <a href="/loans#vehicle">Vehicle Loan</a>
+      <a href="/loans#professional">Professional Loan</a>
+      <a href="/loans#machinery">Machinery Loan</a>
+      <a href="/loans#gold">Gold Loan</a>
+      <a href="/insurance#life">Life Insurance</a>
+      <a href="/insurance#health">Health Insurance</a>
+      <a href="/insurance#term">Term Insurance</a>
+    </div>
+  </div>
+</nav>
 
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-panel">
@@ -80,8 +121,6 @@
         <ul class="mobile-nav-sub">
           <li><a href="/loans">All Loans</a></li>
           <li><a href="/insurance">All Insurance</a></li>
-          <li><a href="/contact#loan-enquiry">Loan Enquiry</a></li>
-          <li><a href="/contact#partner-enquiry">DSA / Partner Enquiry</a></li>
           <li><a href="/loans#home">Home Loan</a></li>
           <li><a href="/loans#personal">Personal Loan</a></li>
           <li><a href="/insurance#health">Health Insurance</a></li>
@@ -98,7 +137,13 @@
           <li><a href="careers.html">Careers</a></li>
         </ul>
       </li>
-      <li><a href="/contact" class="active">Contact / Apply</a></li>
+      <li class="mobile-nav-group">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false">Apply Now &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="#loan-enquiry">Customer Loan Enquiry</a></li>
+          <li><a href="#partner-enquiry">Channel Partner / DSA</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>
@@ -113,12 +158,12 @@
 <section class="section section-alt">
   <div class="container">
     <div class="contact-form-tabs" id="contactFormTabs" role="tablist" aria-label="Enquiry type">
-      <button type="button" class="contact-tab active" role="tab" aria-selected="true" aria-controls="customerLoanForm" id="loanEnquiryTab" data-form="loan">Customer Loan Enquiry</button>
-      <button type="button" class="contact-tab" role="tab" aria-selected="false" aria-controls="partnerDsaForm" id="partnerEnquiryTab" data-form="partner">Channel Partner / DSA</button>
+      <a href="#loan-enquiry" class="contact-tab" role="tab" aria-selected="true" aria-controls="loan-enquiry" id="loanEnquiryTab">Customer Loan Enquiry</a>
+      <a href="#partner-enquiry" class="contact-tab" role="tab" aria-selected="false" aria-controls="partner-enquiry" id="partnerEnquiryTab">Channel Partner / DSA</a>
     </div>
     <div class="form-grid-2">
       <div class="contact-form-panels">
-        <form class="form-card contact-form contact-form-panel active" id="customerLoanForm" data-panel="loan" role="tabpanel" aria-labelledby="loanEnquiryTab">
+        <form class="form-card contact-form contact-form-panel" id="loan-enquiry" data-panel="loan" role="tabpanel" aria-labelledby="loanEnquiryTab">
           <h3 style="margin:0 0 8px;font-size:20px;">Customer Loan Enquiry</h3>
           <p class="form-intro">Apply for a loan or insurance cover &mdash; tell us what you need and we'll compare options across our banking partners.</p>
           <div class="form-success">Thank you! Our loan advisor will call you within 24 hours.</div>
@@ -182,7 +227,7 @@
           <button type="submit" class="btn-maroon" style="width:100%;">Submit Loan Enquiry</button>
         </form>
 
-        <form class="form-card contact-form contact-form-panel" id="partnerDsaForm" data-panel="partner" role="tabpanel" aria-labelledby="partnerEnquiryTab">
+        <form class="form-card contact-form contact-form-panel" id="partner-enquiry" data-panel="partner" role="tabpanel" aria-labelledby="partnerEnquiryTab">
           <h3 style="margin:0 0 8px;font-size:20px;">Channel Partner / DSA Enquiry</h3>
           <p class="form-intro">Join our network as a DSA or channel partner &mdash; multi-bank access, file support and performance-based payouts.</p>
           <div class="form-success">Thank you! Our partnerships team will contact you within 24 hours.</div>
@@ -277,9 +322,16 @@
         </div>
         <div class="contact-side">
           <h3 style="font-size:16px;">Connect</h3>
-          <div class="footer-social" style="gap:12px;margin-top:8px;">
-            <a href="https://www.linkedin.com/in/guddu-kumar-686721104/" target="_blank" rel="noopener">in</a>
-            <a href="https://www.facebook.com/profile.php?id=61588281442556" target="_blank" rel="noopener">f</a>
+          <div class="social-links" aria-label="Social media">
+            <a href="https://www.linkedin.com/in/guddu-kumar-686721104/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg class="ico ico-social" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a-1.116 1.116 0 0 1 0-2.232 1.116 1.116 0 0 1 0 2.232zM6.813 20.452H3.555V9h3.258v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61588281442556" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg class="ico ico-social" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@prateekfinserve" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg class="ico ico-social" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -347,9 +399,16 @@
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <span>&copy; <span data-year></span> Prateek Finserve. Terms subject to lender / insurer approval.</span>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/in/guddu-kumar-686721104/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a href="https://www.facebook.com/profile.php?id=61588281442556" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+      <div class="footer-social social-links" aria-label="Social media">
+        <a href="https://www.linkedin.com/in/guddu-kumar-686721104/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg class="ico ico-social" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a-1.116 1.116 0 0 1 0-2.232 1.116 1.116 0 0 1 0 2.232zM6.813 20.452H3.555V9h3.258v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588281442556" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg class="ico ico-social" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@prateekfinserve" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg class="ico ico-social" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
       </div>
     </div>
   </div>

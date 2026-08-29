@@ -719,27 +719,33 @@ document.querySelectorAll('.faq-item').forEach(item => {
 // Pre-fill contact form from ?role= (careers page apply links) — runs after tab init below
 
 function contactFormSource(form) {
+  if (form.id === 'loan-enquiry') return 'Customer Loan Enquiry';
+  if (form.id === 'partner-enquiry') return 'Channel Partner / DSA Enquiry';
   if (form.id === 'customerLoanForm') return 'Customer Loan Enquiry';
   if (form.id === 'partnerDsaForm') return 'Channel Partner / DSA Enquiry';
   if (form.id === 'pageContactForm') return 'Contact Page';
   return 'Homepage Contact';
 }
 
-function setContactFormTab(which) {
-  const tabs = document.querySelectorAll('#contactFormTabs .contact-tab');
-  const panels = document.querySelectorAll('.contact-form-panel');
-  if (!tabs.length || !panels.length) return;
-
-  tabs.forEach((tab) => {
-    const on = tab.dataset.form === which;
-    tab.classList.toggle('active', on);
+function syncContactTabClasses() {
+  const tabsWrap = document.getElementById('contactFormTabs');
+  if (!tabsWrap) return;
+  const hash = window.location.hash.replace('#', '');
+  const showPartner = hash === 'partner-enquiry';
+  tabsWrap.querySelectorAll('.contact-tab').forEach((tab) => {
+    const isPartner = tab.getAttribute('href') === '#partner-enquiry';
+    const on = showPartner ? isPartner : !isPartner;
     tab.setAttribute('aria-selected', on ? 'true' : 'false');
   });
-  panels.forEach((panel) => {
-    const on = panel.dataset.panel === which;
-    panel.classList.toggle('active', on);
-    panel.hidden = !on;
-  });
+}
+
+function applyContactHash(scroll) {
+  syncContactTabClasses();
+  if (!scroll) return;
+  const hash = window.location.hash.replace('#', '');
+  if (hash !== 'partner-enquiry' && hash !== 'loan-enquiry') return;
+  const target = document.getElementById(hash);
+  (target || document.getElementById('contactFormTabs'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 (function initContactFormTabs() {
@@ -749,20 +755,11 @@ function setContactFormTab(which) {
   tabsWrap.addEventListener('click', (e) => {
     const tab = e.target.closest('.contact-tab');
     if (!tab) return;
-    setContactFormTab(tab.dataset.form);
-    const hash = tab.dataset.form === 'partner' ? 'partner-enquiry' : 'loan-enquiry';
-    history.replaceState(null, '', `#${hash}`);
+    requestAnimationFrame(syncContactTabClasses);
   });
 
-  const hash = window.location.hash.replace('#', '');
-  if (hash === 'partner-enquiry') setContactFormTab('partner');
-  else setContactFormTab('loan');
-
-  window.addEventListener('hashchange', () => {
-    const h = window.location.hash.replace('#', '');
-    if (h === 'partner-enquiry') setContactFormTab('partner');
-    else if (h === 'loan-enquiry') setContactFormTab('loan');
-  });
+  applyContactHash(window.location.hash === '#partner-enquiry' || window.location.hash === '#loan-enquiry');
+  window.addEventListener('hashchange', () => applyContactHash(true));
 })();
 
 (function initCareerApplyPrefill() {
@@ -776,7 +773,10 @@ function setContactFormTab(which) {
   };
   const roleLabel = roleMap[role] || role;
 
-  setContactFormTab('loan');
+  if (window.location.hash !== '#loan-enquiry') {
+    window.location.hash = 'loan-enquiry';
+  }
+  syncContactTabClasses();
 
   const message = document.getElementById('loanMessage');
   if (message && !message.value.trim()) {

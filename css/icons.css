@@ -55,3 +55,14 @@
 .sticky-bar a {
   font-size: 12px;
 }
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-links .ico-social {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
