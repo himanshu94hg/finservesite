@@ -385,6 +385,9 @@ const finderOptions = {
     ['education', 'Education Loan'],
     ['car', 'Car / Used Car Loan'],
     ['vehicle', 'Vehicle Loan'],
+    ['professional', 'Professional Loan'],
+    ['machinery', 'Machinery Loan'],
+    ['gold', 'Gold Loan'],
   ],
   insurance: [
     ['life', 'Life Insurance'],
@@ -398,6 +401,7 @@ const finderOptions = {
     ['od', 'Overdraft (OD)'],
     ['cc', 'Cash Credit (CC)'],
     ['lap', 'Loan Against Property'],
+    ['machinery', 'Machinery Loan'],
   ],
   property: [
     ['home', 'Home Loan'],
@@ -688,6 +692,35 @@ document.querySelectorAll('.faq-item').forEach(item => {
     if (a) a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
   });
 });
+
+// Pre-fill contact form from ?role= (careers page apply links)
+(function initCareerApplyPrefill() {
+  const params = new URLSearchParams(window.location.search);
+  const role = params.get('role');
+  if (!role) return;
+
+  const roleMap = {
+    'backend-operations': 'Backend Operations Executive',
+    'sales-executive': 'Sales Executive',
+  };
+  const roleLabel = roleMap[role] || role;
+
+  const enquiry = document.getElementById('enquiryType');
+  const roleSelect = document.getElementById('role');
+  const message = document.getElementById('message');
+
+  if (enquiry) {
+    const careerOpt = [...enquiry.options].find(o => o.textContent === 'Career Application');
+    if (careerOpt) enquiry.value = careerOpt.textContent;
+  }
+  if (roleSelect) {
+    const match = [...roleSelect.options].find(o => o.value === roleLabel);
+    if (match) roleSelect.value = roleLabel;
+  }
+  if (message && !message.value.trim()) {
+    message.value = `I am applying for the ${roleLabel} position at Prateek Finserve.`;
+  }
+})();
 
 // Contact forms → support@prateekfinserve.com
 document.querySelectorAll('.contact-form').forEach(form => {
