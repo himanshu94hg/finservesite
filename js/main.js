@@ -283,6 +283,15 @@ if (menuToggle && mobileNav) {
   });
 }
 
+document.querySelectorAll('.mobile-nav-toggle').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const group = btn.closest('.mobile-nav-group');
+    if (!group) return;
+    const isOpen = group.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
 // Hero banner slider
 (function initHeroSlider() {
   const banner = document.getElementById('heroBanner');
@@ -290,7 +299,10 @@ if (menuToggle && mobileNav) {
   const dotsWrap = document.getElementById('heroDots');
   const prevBtn = document.getElementById('heroPrev');
   const nextBtn = document.getElementById('heroNext');
-  if (!banner || slides.length < 2 || !dotsWrap) return;
+  const slidesWrap = banner.querySelector('.hero-slides');
+  if (!banner || slides.length < 2 || !dotsWrap || !slidesWrap) return;
+
+  slides.forEach((slide) => slide.removeAttribute('hidden'));
 
   let index = 0;
   let timer = null;
@@ -310,19 +322,25 @@ if (menuToggle && mobileNav) {
 
   const dots = [...dotsWrap.querySelectorAll('.hero-dot')];
 
+  function syncHeight() {
+    let max = 0;
+    slides.forEach((slide) => {
+      const content = slide.querySelector('.hero-slide-content');
+      if (content) max = Math.max(max, content.offsetHeight);
+    });
+    slidesWrap.style.minHeight = `${Math.max(max, 520)}px`;
+  }
+
   function goTo(i, userDriven) {
     index = (i + slides.length) % slides.length;
     slides.forEach((slide, n) => {
       const on = n === index;
       slide.classList.toggle('is-active', on);
-      if (on) {
-        slide.removeAttribute('hidden');
-      } else {
-        slide.setAttribute('hidden', '');
-      }
+      slide.setAttribute('aria-hidden', on ? 'false' : 'true');
     });
     dots.forEach((dot, n) => dot.setAttribute('aria-selected', n === index ? 'true' : 'false'));
     banner.dataset.theme = slides[index].dataset.theme || 'default';
+    requestAnimationFrame(syncHeight);
     if (userDriven) restart();
   }
 
@@ -371,6 +389,8 @@ if (menuToggle && mobileNav) {
     if (document.hidden) stop();
     else start();
   });
+
+  window.addEventListener('resize', syncHeight);
 
   goTo(0, false);
   start();

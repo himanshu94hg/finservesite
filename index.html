@@ -50,14 +50,19 @@
           <a href="/loans#personal">Personal Loan</a>
           <a href="/loans#home">Home Loan</a>
           <a href="/insurance#health">Health Insurance</a>
+          <a href="/#calculator">EMI Calculator</a>
         </div>
       </li>
       <li><a href="/loans">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/partners">Partners</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
+      <li>
+        <button type="button">Company &#9662;</button>
+        <div class="dropdown">
+          <a href="/about">About Us</a>
+          <a href="/partners">Partners</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </li>
       <li><a href="/contact">Apply Now</a></li>
     </ul>
     <div class="header-actions">
@@ -87,13 +92,28 @@
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close">&times;</button>
     <ul class="mobile-nav-links">
       <li><a href="/">Home</a></li>
+      <li class="mobile-nav-group">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false">Explore Products &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/loans">All Loans</a></li>
+          <li><a href="/insurance">All Insurance</a></li>
+          <li><a href="/loans#personal">Personal Loan</a></li>
+          <li><a href="/loans#home">Home Loan</a></li>
+          <li><a href="/insurance#health">Health Insurance</a></li>
+          <li><a href="/#calculator">EMI Calculator</a></li>
+        </ul>
+      </li>
       <li><a href="/loans">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/partners">Partners</a></li>
+      <li class="mobile-nav-group">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false">Company &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/partners">Partners</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
       <li><a href="/contact">Contact / Apply</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
     </ul>
   </div>
 </div>
@@ -113,52 +133,16 @@
             <h1>We Deal in All Types of Loans &amp; Insurance</h1>
             <p class="hero-sub">Prateek Finserve helps individuals and businesses in Delhi find the right loan or cover — compared across partners, paperwork handled for you.</p>
 
-            <div class="finder">
-              <div class="finder-tabs" id="finderTabs">
-                <button type="button" class="finder-tab active" data-cat="loans">Loans</button>
-                <button type="button" class="finder-tab" data-cat="insurance">Insurance</button>
-                <button type="button" class="finder-tab" data-cat="business">Business</button>
-                <button type="button" class="finder-tab" data-cat="property">Property</button>
-                <button type="button" class="finder-tab" data-cat="vehicle">Vehicle</button>
-              </div>
-              <div class="finder-body">
-                <form class="finder-fields" id="finderForm" action="/contact" method="get">
-                  <div class="finder-field">
-                    <label for="lookingFor">I am looking for…</label>
-                    <select id="lookingFor" name="looking">
-                      <option value="personal">Personal Loan</option>
-                      <option value="home">Home Loan</option>
-                      <option value="business">Business Loan</option>
-                      <option value="lap">Loan Against Property</option>
-                      <option value="od">Overdraft (OD)</option>
-                      <option value="cc">Cash Credit (CC)</option>
-                      <option value="car">Car / Used Car Loan</option>
-                      <option value="education">Education Loan</option>
-                      <option value="vehicle">Vehicle Loan</option>
-                      <option value="professional">Professional Loan</option>
-                      <option value="machinery">Machinery Loan</option>
-                      <option value="gold">Gold Loan</option>
-                    </select>
-                  </div>
-                  <div class="finder-field">
-                    <label for="iAm">I am a…</label>
-                    <select id="iAm" name="segment">
-                      <option value="personal">Salaried Individual</option>
-                      <option value="self">Self-Employed</option>
-                      <option value="business">Business Owner</option>
-                      <option value="student">Student</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="btn-maroon">Get Started</button>
-                </form>
-              </div>
+            <div class="hero-actions">
+              <a href="/contact" class="btn-maroon">Apply Now</a>
+              <a href="/loans" class="btn-outline-maroon">Explore Loans</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 2: MSME -->
-      <div class="hero-slide" data-theme="msme" role="group" aria-roledescription="slide" aria-label="2 of 4" hidden>
+      <div class="hero-slide" data-theme="msme" role="group" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true">
         <div class="hero-slide-media" aria-hidden="true">
           <img src="assets/images/hero-msme.jpg" alt="" width="1600" height="900" loading="lazy">
         </div>
@@ -167,11 +151,6 @@
             <p class="hero-eyebrow">Business finance</p>
             <h1>MSME Loans Built for Growing Businesses</h1>
             <p class="hero-sub">Working capital, term loans, OD &amp; CC for micro, small and medium enterprises — matched to lenders who understand your cash flow and sector.</p>
-            <ul class="hero-points">
-              <li>Working capital &amp; term finance</li>
-              <li>Paperwork &amp; bank follow-ups handled</li>
-              <li>Partners across banks &amp; NBFCs</li>
-            </ul>
             <div class="hero-actions">
               <a href="/loans#business" class="btn-maroon">Explore MSME Loans</a>
               <a href="/contact?looking=business" class="btn-outline-maroon">Request Callback</a>
@@ -181,7 +160,7 @@
       </div>
 
       <!-- 3: CGTMSE -->
-      <div class="hero-slide" data-theme="cgtmse" role="group" aria-roledescription="slide" aria-label="3 of 4" hidden>
+      <div class="hero-slide" data-theme="cgtmse" role="group" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true">
         <div class="hero-slide-media" aria-hidden="true">
           <img src="assets/images/hero-cgtmse.jpg" alt="" width="1600" height="900" loading="lazy">
         </div>
@@ -190,11 +169,6 @@
             <p class="hero-eyebrow">MSME advantage · Rare access</p>
             <h1>CGTMSE with Government Banks</h1>
             <p class="hero-sub">Collateral-light / credit-guarantee facilitated business loans via PSU banks under CGTMSE — ideal when your MSME needs capital without heavy collateral.</p>
-            <ul class="hero-points">
-              <li>Credit guarantee support for eligible MSMEs</li>
-              <li>Access via government / public sector banks</li>
-              <li>End-to-end case handling by our team</li>
-            </ul>
             <div class="hero-actions">
               <a href="/#partners" class="btn-maroon">See Govt Bank Partners</a>
               <a href="/contact?looking=business&amp;segment=business" class="btn-outline-maroon">Check Eligibility</a>
@@ -204,7 +178,7 @@
       </div>
 
       <!-- 4: LIC -->
-      <div class="hero-slide" data-theme="lic" role="group" aria-roledescription="slide" aria-label="4 of 4" hidden>
+      <div class="hero-slide" data-theme="lic" role="group" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true">
         <div class="hero-slide-media" aria-hidden="true">
           <img src="assets/images/hero-lic.jpg" alt="" width="1600" height="900" loading="lazy">
         </div>
@@ -213,11 +187,6 @@
             <p class="hero-eyebrow">Insurance partner</p>
             <h1>LIC Life &amp; Term Cover You Can Trust</h1>
             <p class="hero-sub">Strong LIC relationship for life insurance, term plans and endowment — public-sector assurance with clear advisory from Prateek Finserve.</p>
-            <ul class="hero-points">
-              <li>Life &amp; term insurance</li>
-              <li>Endowment &amp; long-term savings plans</li>
-              <li>Guided proposal to policy issuance</li>
-            </ul>
             <div class="hero-actions">
               <a href="/insurance#life" class="btn-maroon">Explore LIC Plans</a>
               <a href="/contact?looking=life" class="btn-outline-maroon">Talk to an Advisor</a>

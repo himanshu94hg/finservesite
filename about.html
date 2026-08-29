@@ -49,14 +49,19 @@
           <a href="/loans#personal">Personal Loan</a>
           <a href="/loans#home">Home Loan</a>
           <a href="/insurance#health">Health Insurance</a>
+          <a href="/#calculator">EMI Calculator</a>
         </div>
       </li>
       <li><a href="/loans">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/partners">Partners</a></li>
-      <li><a href="/about" class="active">About</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
+      <li>
+        <button type="button" class="active">Company &#9662;</button>
+        <div class="dropdown">
+          <a href="/about" class="active">About Us</a>
+          <a href="/partners">Partners</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </li>
       <li><a href="/contact">Apply Now</a></li>
     </ul>
     <div class="header-actions">
@@ -71,13 +76,28 @@
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close">&times;</button>
     <ul class="mobile-nav-links">
       <li><a href="/">Home</a></li>
+      <li class="mobile-nav-group">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false">Explore Products &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/loans">All Loans</a></li>
+          <li><a href="/insurance">All Insurance</a></li>
+          <li><a href="/loans#personal">Personal Loan</a></li>
+          <li><a href="/loans#home">Home Loan</a></li>
+          <li><a href="/insurance#health">Health Insurance</a></li>
+          <li><a href="/#calculator">EMI Calculator</a></li>
+        </ul>
+      </li>
       <li><a href="/loans">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/partners">Partners</a></li>
+      <li class="mobile-nav-group open">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="true">Company &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/about" class="active">About Us</a></li>
+          <li><a href="/partners">Partners</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
       <li><a href="/contact">Contact / Apply</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
     </ul>
   </div>
 </div>
@@ -88,13 +108,8 @@
     <img src="assets/images/hero-general.jpg" alt="" width="1600" height="900" fetchpriority="high">
   </div>
   <div class="container about-hero-content">
-    <p class="about-brand">Prateek Finserve</p>
-    <h1>Let's Grow Faster, Together</h1>
-    <p class="about-hero-sub">Delhi loans &amp; insurance &mdash; compared across partners, paperwork handled end to end.</p>
-    <div class="about-hero-actions">
-      <a href="/contact" class="btn-maroon">Talk to Us</a>
-      <a href="tel:+919643454034" class="btn-outline-maroon">+91 96434 54034</a>
-    </div>
+    <h1><span class="banner-mark">Let's Grow Faster, Together</span></h1>
+    <p class="about-hero-sub"><span class="banner-mark-sub">Delhi loans &amp; insurance &mdash; compared across partners, paperwork handled end to end.</span></p>
   </div>
 </section>
 

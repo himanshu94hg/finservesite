@@ -46,14 +46,19 @@
           <a href="/loans#personal">Personal Loan</a>
           <a href="/loans#home">Home Loan</a>
           <a href="/insurance#health">Health Insurance</a>
+          <a href="/#calculator">EMI Calculator</a>
         </div>
       </li>
       <li><a href="/loans">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/partners" class="active">Partners</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
+      <li>
+        <button type="button" class="active">Company &#9662;</button>
+        <div class="dropdown">
+          <a href="/about">About Us</a>
+          <a href="/partners" class="active">Partners</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </li>
       <li><a href="/contact">Apply Now</a></li>
     </ul>
     <div class="header-actions">
@@ -68,21 +73,36 @@
     <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
     <ul class="mobile-nav-links">
       <li><a href="/">Home</a></li>
+      <li class="mobile-nav-group">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false">Explore Products &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/loans">All Loans</a></li>
+          <li><a href="/insurance">All Insurance</a></li>
+          <li><a href="/loans#personal">Personal Loan</a></li>
+          <li><a href="/loans#home">Home Loan</a></li>
+          <li><a href="/insurance#health">Health Insurance</a></li>
+          <li><a href="/#calculator">EMI Calculator</a></li>
+        </ul>
+      </li>
       <li><a href="/loans">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/partners">Partners</a></li>
+      <li class="mobile-nav-group open">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="true">Company &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/partners" class="active">Partners</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
       <li><a href="/contact">Contact / Apply</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
     </ul>
   </div>
 </div>
 
 <section class="page-banner">
   <div class="container">
-    <h1>Our Channel Partners</h1>
-    <p>Banks, NBFCs &amp; housing finance &mdash; with LIC for insurance and CGTMSE access via government banks.</p>
+    <h1><span class="banner-mark">Our Channel Partners</span></h1>
+    <p><span class="banner-mark-sub">Banks, NBFCs &amp; housing finance &mdash; with LIC for insurance and CGTMSE access via government banks.</span></p>
   </div>
 </section>
 

@@ -46,14 +46,19 @@
           <a href="/loans#personal">Personal Loan</a>
           <a href="/loans#home">Home Loan</a>
           <a href="/insurance#health">Health Insurance</a>
+          <a href="/#calculator">EMI Calculator</a>
         </div>
       </li>
       <li><a href="/loans" class="active">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/partners">Partners</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
+      <li>
+        <button type="button">Company &#9662;</button>
+        <div class="dropdown">
+          <a href="/about">About Us</a>
+          <a href="/partners">Partners</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </li>
       <li><a href="/contact">Apply Now</a></li>
     </ul>
     <div class="header-actions">
@@ -84,21 +89,36 @@
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close">&times;</button>
     <ul class="mobile-nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/loans">Loans</a></li>
+      <li class="mobile-nav-group open">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="true">Explore Products &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/loans" class="active">All Loans</a></li>
+          <li><a href="/insurance">All Insurance</a></li>
+          <li><a href="/loans#personal">Personal Loan</a></li>
+          <li><a href="/loans#home">Home Loan</a></li>
+          <li><a href="/insurance#health">Health Insurance</a></li>
+          <li><a href="/#calculator">EMI Calculator</a></li>
+        </ul>
+      </li>
+      <li><a href="/loans" class="active">Loans</a></li>
       <li><a href="/insurance">Insurance</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="/partners">Partners</a></li>
+      <li class="mobile-nav-group">
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false">Company &#9662;</button>
+        <ul class="mobile-nav-sub">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/partners">Partners</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </li>
       <li><a href="/contact">Contact / Apply</a></li>
-      <li><a href="/#calculator">EMI Calculator</a></li>
     </ul>
   </div>
 </div>
 
 <section class="page-banner">
   <div class="container">
-    <h1>Loan Products</h1>
-    <p>Choose from loans for your specific requirements &mdash; we compare multiple banks to find the right fit.</p>
+    <h1><span class="banner-mark">Loan Products</span></h1>
+    <p><span class="banner-mark-sub">Choose from loans for your specific requirements &mdash; we compare multiple banks to find the right fit.</span></p>
   </div>
 </section>
 

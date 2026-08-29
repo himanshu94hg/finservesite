@@ -150,7 +150,8 @@ ul {
 
 .nav-main>li>a:hover,
 .nav-main>li>button:hover,
-.nav-main>li>a.active {
+.nav-main>li>a.active,
+.nav-main>li>button.active {
   color: var(--maroon);
 }
 
@@ -187,6 +188,12 @@ ul {
 .dropdown a:hover {
   background: var(--pink-soft);
   color: var(--maroon);
+}
+
+.dropdown a.active {
+  color: var(--maroon);
+  font-weight: 700;
+  background: var(--pink-soft);
 }
 
 .header-actions {
@@ -289,18 +296,33 @@ ul {
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.55s ease, visibility 0.55s;
+  transition: opacity 0.85s ease-in-out, visibility 0.85s ease-in-out;
   pointer-events: none;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .hero-slide.is-active {
-  position: relative;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  z-index: 2;
+}
+
+.hero-slide-copy {
+  max-width: 80%;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.hero-slide.is-active .hero-slide-copy {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease 0.18s, transform 0.7s ease 0.18s;
 }
 
 .hero-slide-media {
@@ -359,11 +381,6 @@ ul {
   text-align: left;
 }
 
-.hero-slide-copy {
-  max-width: 560px;
-  min-width: 0;
-}
-
 .hero-eyebrow {
   display: inline-block;
   margin: 0 0 14px;
@@ -390,7 +407,7 @@ ul {
 }
 
 .hero h1 {
-  font-size: clamp(28px, 3.8vw, 42px);
+  font-size: clamp(30px, 4.2vw, 50px);
   font-weight: 700;
   color: var(--maroon);
   margin: 0 0 14px;
@@ -406,10 +423,10 @@ ul {
 }
 
 .hero .hero-sub {
-  font-size: 15px;
+  font-size: 20px;
   color: var(--text-soft);
   margin: 0 0 22px;
-  max-width: 520px;
+  max-width: 70%;
   line-height: 1.55;
 }
 
@@ -601,8 +618,12 @@ ul {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide {
+  .hero-slide,
+  .hero-slide-copy,
+  .hero-slide.is-active .hero-slide-copy,
+  .hero-slide-media img {
     transition: none;
+    transform: none;
   }
 }
 
@@ -1577,27 +1598,52 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* ---------- PAGE BANNER ---------- */
+.banner-mark {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.2em 0.06em;
+  line-height: 1.45;
+  background: linear-gradient(to bottom, transparent 44%, #f0b4c2 44%);
+}
+
+.banner-mark-sub {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.18em 0.05em;
+  line-height: 1.55;
+  background: linear-gradient(to bottom, transparent 54%, #f6ccd6 54%);
+}
+
 .page-banner {
-  background:
-    radial-gradient(ellipse 70% 80% at 100% 0%, rgba(196, 30, 58, 0.15), transparent),
-    linear-gradient(180deg, var(--pink-soft), #fff);
-  padding: 48px 0;
+  background: #fff;
+  padding: 52px 0 48px;
   text-align: center;
   border-bottom: 1px solid var(--border);
 }
 
 .page-banner h1 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   font-size: clamp(28px, 3.5vw, 40px);
-  color: var(--maroon);
   font-weight: 700;
+  line-height: 1.3;
+}
+
+.page-banner h1 .banner-mark {
+  color: var(--maroon);
 }
 
 .page-banner p {
   margin: 0 auto;
-  max-width: 560px;
-  color: var(--text-soft);
+  max-width: 620px;
   font-size: 16px;
+  line-height: 1.55;
+}
+
+.page-banner p .banner-mark-sub {
+  color: var(--text);
+  font-weight: 500;
 }
 
 /* ---------- PRODUCT CARDS GRID ---------- */
@@ -2019,6 +2065,34 @@ input[type=range]::-webkit-slider-thumb {
   border-bottom: 1px solid var(--border);
 }
 
+.mobile-nav-group .mobile-nav-sub {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 8px 12px;
+}
+
+.mobile-nav-group.open .mobile-nav-sub {
+  display: block;
+}
+
+.mobile-nav-toggle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-nav-group.open .mobile-nav-toggle {
+  color: var(--maroon);
+}
+
 .mobile-nav-links a {
   display: block;
   padding: 14px 0;
@@ -2031,6 +2105,15 @@ input[type=range]::-webkit-slider-thumb {
   font-weight: 500;
   color: var(--text-soft);
   padding: 8px 0 8px 12px;
+}
+
+.mobile-nav-sub a.active {
+  color: var(--maroon);
+  font-weight: 700;
+}
+
+.mobile-nav-links a.active {
+  color: var(--maroon);
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -2611,16 +2694,24 @@ input[type=range]::-webkit-slider-thumb {
   margin: 0 0 14px;
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.3;
+}
+
+.about-hero h1 .banner-mark {
   color: #fff;
+  background: linear-gradient(to bottom, transparent 44%, rgba(255, 255, 255, 0.34) 44%);
 }
 
 .about-hero-sub {
-  margin: 0 0 26px;
+  margin: 0;
   font-size: 16px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 480px;
+  max-width: 520px;
+}
+
+.about-hero-sub .banner-mark-sub {
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(to bottom, transparent 54%, rgba(255, 255, 255, 0.22) 54%);
 }
 
 .about-hero-actions {
@@ -2912,47 +3003,38 @@ input[type=range]::-webkit-slider-thumb {
 
 /* ---------- CAREERS PAGE ---------- */
 .careers-hero {
-  background:
-    radial-gradient(ellipse 80% 100% at 0% 0%, rgba(196, 30, 58, 0.12), transparent),
-    linear-gradient(180deg, var(--pink-soft), #fff);
-  padding: 56px 0 48px;
+  background: #fff;
+  padding: 52px 0 48px;
   border-bottom: 1px solid var(--border);
+  text-align: center;
 }
 
 .careers-hero-inner {
   max-width: 720px;
-}
-
-.careers-hero .section-eyebrow {
-  margin-bottom: 12px;
+  margin: 0 auto;
 }
 
 .careers-hero h1 {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   font-size: clamp(30px, 4vw, 42px);
   font-weight: 700;
+  line-height: 1.3;
+}
+
+.careers-hero h1 .banner-mark {
   color: var(--maroon);
-  line-height: 1.2;
 }
 
 .careers-hero-lead {
-  margin: 0 0 28px;
+  margin: 0 auto;
+  max-width: 620px;
   font-size: 17px;
   line-height: 1.65;
-  color: var(--text-soft);
 }
 
-.careers-hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  font-size: 14px;
+.careers-hero-lead .banner-mark-sub {
   color: var(--text);
-}
-
-.careers-hero-meta span strong {
-  color: var(--maroon);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .careers-intro-grid {
@@ -3239,10 +3321,5 @@ input[type=range]::-webkit-slider-thumb {
   .career-actions .btn-maroon,
   .career-actions .btn-outline-maroon {
     width: 100%;
-  }
-
-  .careers-hero-meta {
-    flex-direction: column;
-    gap: 8px;
   }
 }
