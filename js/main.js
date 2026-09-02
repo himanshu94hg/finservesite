@@ -299,8 +299,9 @@ document.querySelectorAll('.mobile-nav-toggle').forEach((btn) => {
   const dotsWrap = document.getElementById('heroDots');
   const prevBtn = document.getElementById('heroPrev');
   const nextBtn = document.getElementById('heroNext');
+  if (!banner || slides.length < 2 || !dotsWrap) return;
   const slidesWrap = banner.querySelector('.hero-slides');
-  if (!banner || slides.length < 2 || !dotsWrap || !slidesWrap) return;
+  if (!slidesWrap) return;
 
   slides.forEach((slide) => slide.removeAttribute('hidden'));
 
